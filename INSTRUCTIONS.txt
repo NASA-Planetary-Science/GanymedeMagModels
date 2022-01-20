@@ -1,0 +1,35 @@
+Software needed:
+----------------
+
+Calculations:
+- Matlab or Octave: https://www.gnu.org/software/octave/index
+- Slepian software package: https://github.com/Slepian/Slepian
+
+Plotting:
+GMT 6: https://www.generic-mapping-tools.org/
+
+
+
+Instructions:
+-------------
+
+Calculations:
+
+In Matlab or Octave, initialize the Slepian software:
+
+initialize
+
+Make sure that you set the path in initialize to the correct path of your Slepian codes, or just copy all the codes into your Slepian folder.
+Then run makeMyField(g10,Lmax,filename), for example
+
+makeMyField(-700,3,'Lmax_3_g10_-700_allGalileoTracks')
+
+Plotting:
+
+In the command line, run ./makeMyFigs.sh filename for example:
+
+./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks
+
+For the plotting you need to have GMT 6 installed.
+
+The figures are saved in the "figures" folder

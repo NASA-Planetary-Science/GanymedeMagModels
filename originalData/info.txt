@@ -1,0 +1,5 @@
+Retrieved from PDS-PPI IGPP UCLA on Thu Aug 26 19:08:20 GMT 2021
+
+You can down this data again with the URL:
+
+/ditdos/download?id=pds://PPI/GO-J-MAG-3-RDR-HIGHRES-V1.0/DATA/SATELLITES/GANYMEDE

@@ -1,0 +1,161 @@
+PDS_VERSION_ID                = PDS3                                          
+DATA_SET_ID                   = "GO-J-MAG-3-RDR-HIGHRES-V1.0"                 
+STANDARD_DATA_PRODUCT_ID      = "MAG LPW SYS3 COORDS"                         
+PRODUCT_ID                    = "ORB01_GAN_SYS3"                              
+PRODUCT_TYPE                  = DATA                                          
+PRODUCT_VERSION_ID            = "2"                                           
+PRODUCT_CREATION_TIME         = 2004-08-04T12:51:45                           
+                                                                              
+RECORD_TYPE                   = FIXED_LENGTH                                  
+RECORD_BYTES                  = 93                                            
+FILE_RECORDS                  = 8167                                          
+                                                                              
+START_TIME                    = 1996-06-27T06:07:08.894                       
+STOP_TIME                     = 1996-06-27T06:52:37.259                       
+SPACECRAFT_CLOCK_START_COUNT  = "1/03497588:01:0:0"                           
+SPACECRAFT_CLOCK_STOP_COUNT   = "1/03497632:89:5:4"                           
+                                                                              
+INSTRUMENT_HOST_NAME          = "GALILEO ORBITER"                             
+INSTRUMENT_HOST_ID            = "GO"                                          
+MISSION_PHASE_NAME            = "GANYMEDE 1 ENCOUNTER"                        
+ORBIT_NUMBER                  = 1                                             
+TARGET_NAME                   = {"JUPITER", "GANYMEDE"}                       
+OBSERVATION_ID                = "G01-GAN"                                     
+INSTRUMENT_NAME               = "TRIAXIAL FLUXGATE MAGNETOMETER"              
+INSTRUMENT_ID                 = "MAG"                                         
+DESCRIPTION                   = "                                             
+      Galileo calibrated MAG high-resolution magnetic field and trajectory    
+      data from the Ganymede 1 orbit Ganymede flyby recording in System III   
+      [1965] (SYS3) coordinates.  The data cover 1996-06-27T06:07:00 to       
+      1996-06-27T06:52:00."                                                   
+                                                                              
+^TABLE                        = "ORB01_GAN_SYS3.TAB"                          
+OBJECT                        = TABLE                                         
+  INTERCHANGE_FORMAT          = ASCII                                         
+  ROWS                        = 8167                                          
+  COLUMNS                     = 9                                             
+  ROW_BYTES                   = 93                                            
+  DESCRIPTION                 = "                                             
+      This ASCII table contains MAG and trajectory data in spherical Jupiter  
+      System III [1965] coordinates. The magenetic field vector components    
+      form the standard right-handed sperical triad (R, Theta, Phi). R is     
+      along the Jupiter to spacecraft line, positive away from Jupiter. Phi   
+      is parallel to the Jovigraphic equator (Omega x R). Theta completes the 
+      right-handed set (positive southward). Trajectory is given in terms of  
+      radial distance from Jupiter's center to the spacecraft's center (R),   
+      planetographic latitude, and west longitude."                           
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "SPACECRAFT EVENT TIME"                       
+    COLUMN_NUMBER             = 1                                             
+    UNIT                      = "N/A"                                         
+    DATA_TYPE                 = TIME                                          
+    START_BYTE                = 1                                             
+    BYTES                     = 23                                            
+    DESCRIPTION               = "                                             
+      Spacecraft event time of the sample. This time corresponds to the       
+      'CORRECTED TIME' given in the Galileo MAG survey data set. Time is      
+      given in PDS format: yyyy-mm-ddThh:mm:ss.sss. The individual            
+      elements of the time field can be read using the format                 
+      (i4,4(1x,i2),1x,f6.3) yr, mon, day, hr, min, sec."                      
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BR"                                          
+    COLUMN_NUMBER             = 2                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 25                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Radial field component, System III [1965] coordinates."                 
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BTHETA"                                      
+    COLUMN_NUMBER             = 3                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 35                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Southward field component, System III [1965] coordinates."              
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BPHI"                                        
+    COLUMN_NUMBER             = 4                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 45                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Corotational field component, System III [1965] coordinates."           
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "B-FIELD MAGNITUDE"                           
+    COLUMN_NUMBER             = 5                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 55                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Magnitude of the average B-field components."                           
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "RANGE"                                       
+    COLUMN_NUMBER             = 6                                             
+    UNIT                      = "SATELLITE RADII"                             
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 65                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Range from Jupiter center of mass to the spacecraft in units of Rj =    
+      71492 km."                                                              
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "LATITUDE"                                    
+    COLUMN_NUMBER             = 7                                             
+    UNIT                      = "DEGREE"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 72                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Planetographic latitude of the spacecraft in degrees."                  
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "EAST LONGITUDE"                              
+    COLUMN_NUMBER             = 8                                             
+    UNIT                      = "DEGREE"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 79                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Planetographic east longitude of the spacecraft in degrees."            
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "WEST LONGITUDE"                              
+    COLUMN_NUMBER             = 9                                             
+    UNIT                      = "DEGREE"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 86                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Planetographic west longitude of the spacecraft in degrees."            
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+END_OBJECT                    = TABLE                                         
+END                                                                           

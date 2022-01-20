@@ -1,0 +1,174 @@
+PDS_VERSION_ID                = PDS3                                          
+DATA_SET_ID                   = "GO-J-MAG-3-RDR-HIGHRES-V1.0"                 
+STANDARD_DATA_PRODUCT_ID      = "MAG LPW IRC COORDS"                          
+PRODUCT_ID                    = "ORB08_GAN_IRC"                               
+PRODUCT_TYPE                  = DATA                                          
+PRODUCT_VERSION_ID            = "2"                                           
+PRODUCT_CREATION_TIME         = 2004-08-05T12:43:59                           
+                                                                              
+RECORD_TYPE                   = FIXED_LENGTH                                  
+RECORD_BYTES                  = 113                                           
+FILE_RECORDS                  = 8189                                          
+                                                                              
+START_TIME                    = 1997-05-07T15:36:54.467                       
+STOP_TIME                     = 1997-05-07T16:22:23.799                       
+SPACECRAFT_CLOCK_START_COUNT  = "1/03945342:90:5:0"                           
+SPACECRAFT_CLOCK_STOP_COUNT   = "1/03945387:89:5:0"                           
+                                                                              
+INSTRUMENT_HOST_NAME          = "GALILEO ORBITER"                             
+INSTRUMENT_HOST_ID            = "GO"                                          
+MISSION_PHASE_NAME            = "GANYMEDE 8 ENCOUNTER"                        
+ORBIT_NUMBER                  = 8                                             
+TARGET_NAME                   = {"JUPITER", "GANYMEDE"}                       
+OBSERVATION_ID                = "G08-GAN"                                     
+INSTRUMENT_NAME               = "TRIAXIAL FLUXGATE MAGNETOMETER"              
+INSTRUMENT_ID                 = "MAG"                                         
+DESCRIPTION                   = "                                             
+      Galileo calibrated MAG high-resolution magnetic field and corrected     
+      rotor pointing information from the Ganymede 8 orbit Ganymede flyby     
+      recording in Despun Spacecraft (IRC) coordinates.  The data cover       
+      1997-05-07T15:36:00 to 1997-05-07T16:22:00."                            
+                                                                              
+^TABLE                        = "ORB08_GAN_IRC.TAB"                           
+OBJECT                        = TABLE                                         
+  INTERCHANGE_FORMAT          = ASCII                                         
+  ROWS                        = 8189                                          
+  COLUMNS                     = 10                                            
+  ROW_BYTES                   = 113                                           
+  DESCRIPTION                 = "                                             
+      This ASCII table contains MAG data in Inertial Rotor coordinates (IRC), 
+      and the rotor pointing information necessary to transform the MAG data  
+      into EME-50 and spinning spacecraft coordinates. In IRC coordinates Z   
+      is along the spacecraft spin axis (positive opposite the high-gain      
+      antenna). X is roughly parallel to the south ecliptic normal. Y         
+      completes the right handed set (pointing roughly dawnward). The rotor   
+      pointing data have been processed to correct errors in the raw data,    
+      and interpolated to match the rate of the MAG data."                    
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "SPACECRAFT EVENT TIME"                       
+    COLUMN_NUMBER             = 1                                             
+    UNIT                      = "N/A"                                         
+    DATA_TYPE                 = TIME                                          
+    START_BYTE                = 1                                             
+    BYTES                     = 23                                            
+    DESCRIPTION               = "                                             
+      Spacecraft event time of the sample. This time corresponds to the       
+      'CORRECTED TIME' given in the Galileo MAG survey data set. Time is      
+      given in PDS format: yyyy-mm-ddThh:mm:ss.sss. The individual            
+      elements of the time field can be read using the format                 
+      (i4,4(1x,i2),1x,f6.3) yr, mon, day, hr, min, sec."                      
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "SPACECRAFT CLOCK"                            
+    COLUMN_NUMBER             = 2                                             
+    UNIT                      = "N/A"                                         
+    DATA_TYPE                 = CHARACTER                                     
+    START_BYTE                = 25                                            
+    BYTES                     = 17                                            
+    DESCRIPTION               = "                                             
+      Spacecraft clock counter in the form RIM:mod91:mod10:mod8."             
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BX_SC"                                       
+    COLUMN_NUMBER             = 3                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 40                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Bx field component in the despun spacecraft coordinate system (roughly  
+      anti-Earthward)."                                                       
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BY_SC"                                       
+    COLUMN_NUMBER             = 4                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 50                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      By field component in the despun spacecraft coordinate system           
+      (southward)."                                                           
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BZ_SC"                                       
+    COLUMN_NUMBER             = 5                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 60                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Bz field component in the despun spacecraft coordinate system           
+      (dawnward)."                                                            
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "B-FIELD MAGNITUDE"                           
+    COLUMN_NUMBER             = 6                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 70                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Magnitude of the average B-field components."                           
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "ROTOR RIGHT ASCENSION"                       
+    COLUMN_NUMBER             = 7                                             
+    UNIT                      = "RADIAN"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 80                                            
+    BYTES                     = 7                                             
+    MISSING_CONSTANT          = 9.99999                                       
+    DESCRIPTION               = "                                             
+      Rotor right ascension, EME-50 coordinates."                             
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "ROTOR DECLINATION"                           
+    COLUMN_NUMBER             = 8                                             
+    UNIT                      = "RADIAN"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 88                                            
+    BYTES                     = 8                                             
+    MISSING_CONSTANT          = 99.99999                                      
+    DESCRIPTION               = "                                             
+      Rotor declination, EME-50 coordinates."                                 
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "ROTOR TWIST"                                 
+    COLUMN_NUMBER             = 9                                             
+    UNIT                      = "RADIAN"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 97                                            
+    BYTES                     = 7                                             
+    MISSING_CONSTANT          = 9.99999                                       
+    DESCRIPTION               = "                                             
+      Rotor twist (spin phase) angle, EME-50 coordinates."                    
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "ROTOR SPIN"                                  
+    COLUMN_NUMBER             = 10                                            
+    UNIT                      = "RADIAN"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 105                                           
+    BYTES                     = 7                                             
+    MISSING_CONSTANT          = 9.99999                                       
+    DESCRIPTION               = "                                             
+      Rotor spin phase angle, ECL-50 coordinates."                            
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+END_OBJECT                    = TABLE                                         
+END                                                                           

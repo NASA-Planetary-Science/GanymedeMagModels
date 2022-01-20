@@ -1,0 +1,155 @@
+PDS_VERSION_ID                = PDS3                                          
+DATA_SET_ID                   = "GO-J-MAG-3-RDR-HIGHRES-V1.0"                 
+STANDARD_DATA_PRODUCT_ID      = "MAG LPW GSPRH COORDS"                        
+PRODUCT_ID                    = "ORB02_GAN_GSPRH"                             
+PRODUCT_TYPE                  = DATA                                          
+PRODUCT_VERSION_ID            = "3"                                           
+PRODUCT_CREATION_TIME         = 2019-10-01T01:09:57                           
+                                                                              
+RECORD_TYPE                   = FIXED_LENGTH                                  
+RECORD_BYTES                  = 90                                            
+FILE_RECORDS                  = 9946                                          
+                                                                              
+START_TIME                    = 1996-09-06T18:32:44.787                       
+STOP_TIME                     = 1996-09-06T19:28:22.485                       
+SPACECRAFT_CLOCK_START_COUNT  = "1/03599441:88:0:0"                           
+SPACECRAFT_CLOCK_STOP_COUNT   = "1/03599496:89:5:4"                           
+                                                                              
+INSTRUMENT_HOST_NAME          = "GALILEO ORBITER"                             
+INSTRUMENT_HOST_ID            = "GO"                                          
+MISSION_PHASE_NAME            = "GANYMEDE 2 ENCOUNTER"                        
+ORBIT_NUMBER                  = 2                                             
+TARGET_NAME                   = {"JUPITER", "GANYMEDE"}                       
+OBSERVATION_ID                = "G02-GAN"                                     
+INSTRUMENT_NAME               = "TRIAXIAL FLUXGATE MAGNETOMETER"              
+INSTRUMENT_ID                 = "MAG"                                         
+DESCRIPTION                   = "                                             
+      Galileo calibrated MAG high-resolution magnetic field and trajectory    
+      data from the Ganymede 2 orbit Ganymede flyby recording in              
+      Ganymede-centered 'planetocentric' right-handed (GSPRH) coordinates.    
+      The data cover 1996-09-06T18:32:00 to 1996-09-06T19:28:00."             
+                                                                              
+^TABLE                        = "ORB02_GAN_GSPRH.TAB"                         
+OBJECT                        = TABLE                                         
+  INTERCHANGE_FORMAT          = ASCII                                         
+  ROWS                        = 9946                                          
+  COLUMNS                     = 8                                             
+  ROW_BYTES                   = 90                                            
+  DESCRIPTION                 = "                                             
+      This ASCII table contains MAG and trajectory data in spherical          
+      Ganymede-centered right handed planetocentric (GSPRH) coordinates.      
+      The GSPRH magnetic field vector components form the standard            
+      right-handed spherical triad (R, Theta, Phi). R is along the            
+      satellite to spacecraft line, positive away from the satellite. Phi     
+      is parellel to the satellite's planetographic equator and positive in   
+      a right-handed sense.  Theta completes the right-handed set (positive   
+      southward). The trajectory components are also right-handed. R is       
+      radial distance expressed in units of RG = 2634 km. Latitude is         
+      planetocentric. Longitude is measured from the prime meridian and       
+      positive in a right-handed sense."                                      
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "SPACECRAFT EVENT TIME"                       
+    COLUMN_NUMBER             = 1                                             
+    UNIT                      = "N/A"                                         
+    DATA_TYPE                 = TIME                                          
+    START_BYTE                = 1                                             
+    BYTES                     = 23                                            
+    DESCRIPTION               = "                                             
+      Spacecraft event time of the sample. This time corresponds to the       
+      'CORRECTED TIME' given in the Galileo MAG survey data set. Time is      
+      given in PDS format: yyyy-mm-ddThh:mm:ss.sss. The individual            
+      elements of the time field can be read using the format                 
+      (i4,4(1x,i2),1x,f6.3) yr, mon, day, hr, min, sec."                      
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BR"                                          
+    COLUMN_NUMBER             = 2                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 26                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Radial magnetic field component - GSPRH coordinates."                   
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BTHETA"                                      
+    COLUMN_NUMBER             = 3                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 36                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Southward magnetic field component - GSPRH coordinates."                
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "BPHI"                                        
+    COLUMN_NUMBER             = 4                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 46                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Azimuthal magnetic field component - GSPRH coordinates."                
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "B-FIELD MAGNITUDE"                           
+    COLUMN_NUMBER             = 5                                             
+    UNIT                      = "nT"                                          
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 56                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999999.99                                     
+    DESCRIPTION               = "                                             
+      Magnitude of the average B-field components."                           
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "RANGE"                                       
+    COLUMN_NUMBER             = 6                                             
+    UNIT                      = "SATELLITE RADII"                             
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 66                                            
+    BYTES                     = 9                                             
+    MISSING_CONSTANT          = 999.99999                                     
+    DESCRIPTION               = "                                             
+      Spacecraft range from Ganymede center of mass measured in units of      
+      Ganymede radii."                                                        
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "LATITUDE"                                    
+    COLUMN_NUMBER             = 7                                             
+    UNIT                      = "DEGREE"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 76                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Spacecraft planetocentric latitude with respect to Ganymede in units    
+      of degrees."                                                            
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+  OBJECT                      = COLUMN                                        
+    NAME                      = "LONGITUDE"                                   
+    COLUMN_NUMBER             = 8                                             
+    UNIT                      = "DEGREE"                                      
+    DATA_TYPE                 = ASCII_REAL                                    
+    START_BYTE                = 83                                            
+    BYTES                     = 6                                             
+    MISSING_CONSTANT          = 999.99                                        
+    DESCRIPTION               = "                                             
+      Spacecraft longitude with respect to Ganymede measured from the         
+      sub-Jupiter meridian in a right-handed sense about the spin axis        
+      in units of degrees."                                                   
+  END_OBJECT                  = COLUMN                                        
+                                                                              
+END_OBJECT                    = TABLE                                         
+END                                                                           
