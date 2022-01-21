@@ -28,7 +28,7 @@ Plotting:
 
 In the command line, run ./makeMyFigs.sh filename for example:
 
-./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks
+./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86
 
 For the plotting you need to have GMT 6 installed.
 
