@@ -5,7 +5,7 @@ disp('If you are using a Solaris machine, change the OSTYPE setting in initializ
 
 % To make these functions accessible from another folder,
 % edit the Slepian directory below and copy this file over 
-slepdir = '../MySoftware/Git/Slepian';
+slepdir = '.';
 
 setenv('IFILES',fullfile(slepdir,'IFILES'))
 
