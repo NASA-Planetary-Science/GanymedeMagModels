@@ -31,6 +31,11 @@ the maximum spherical-harmonic degree Lmax, and the filename under which you wan
 For example:
 
 `makeMyField(-700,3,'Lmax_3_g10_-700_allGalileoTracks')`
+or
+`makeMyField(-700,3,'Lmax3_g10_-700_JunoAndAllGalileo')`
+or
+`makeMyField([],3,'Lmax3_JunoAndAllGalileo',[1,2,28,7,101],[1,1,1,1,1])`
+
 
 ### Plotting
 
@@ -41,6 +46,8 @@ in the folder "spec".
 For example:
 
 `./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86`
+or 
+`./makeMyFigsJuno.sh Lmax3_JunoAndAllGalileo 1161.39`
 
 The figures are saved in the "figures" folder
 
