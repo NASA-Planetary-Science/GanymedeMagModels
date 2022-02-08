@@ -30,9 +30,15 @@ function exportSimData(coefs,tracks,foldername,trExport)
   
   for tr = trExport
     
-    filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',tr);
+    
     [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tr);
-    [data,time] = importData(filename);
+    if tr < 100
+      filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',tr);
+      [data,time] = importData(filename);
+    else
+      filename = sprintf('JunoData/ORB%03d_GAN_GPHIO.TAB',tr);
+      [data,time] = importJunoData(filename);
+    end
     index = time >= starttime & time <= endtime;
     time = time(index);
 

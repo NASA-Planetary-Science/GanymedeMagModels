@@ -3,13 +3,15 @@
 # the file name in the folder "specs"
 # For example
 # ./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86
+# or
+# ./makeMyFigs.sh Lmax3_g10_-700_JunoAndAllGalileo 1116
 
 
-#./plotData.sh ${1}_simData
-#./plotDataTalk.sh ${1}_simData
+./plotDataJuno.sh ${1}_simData
+./plotDataJunoTalk.sh ${1}_simData
 
-#./plotFields.sh ${1}_field_cmp1 1500 500
-#./plotFieldsTalk.sh ${1}_field_cmp1 1500 500
+./plotFields.sh ${1}_field_cmp1 1500 500
+./plotFieldsTalk.sh ${1}_field_cmp1 1500 500
 # The last two numbers in plotFieldsTalk
 # give the max abs color and the label step in the colorbar
 

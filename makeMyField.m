@@ -1,9 +1,11 @@
-function makeMyField(g10,Lmax,filename)
+function makeMyField(g10,Lmax,filename,tracks,relweights)
   % makeMyField(g10,Lmax,filename)
   %
   % Example:
   %
-  % makeMyField(-700,3,'Lmax_3_g10_-700_allGalileoTracks')
+  % makeMyField(-700,3,'Lmax_3_g10_-700_allGalileoTracks',[1,2,28,7,29])
+  % or
+  % makeMyField(-700,3,'Lmax3_g10_-700_JunoAndAllGalileo',[1,2,28,7,101],[1,1,1,1,1])
   %
   % Calculates a magnetic field model for Ganymede given a maximum
   % spherical-harmonic degree Lmax and a choice for g10. Try for
@@ -26,11 +28,12 @@ function makeMyField(g10,Lmax,filename)
   %
   % Last modified by plattner-at-alumni.ethz.ch, 02/08/2022
 
-  tracks = [1,2,28,7,29,101];
+  defval('tracks',[1,2,28,7,29,101]);
+  defval('relweights',ones(size(tracks)))
 
   rplanet = 2631.2;
   
-  [coefs,~,~,~] = invSkipCoefSubMoreTracks(3,g10*rplanet,true,tracks);
+  [coefs,~,~,~] = invSkipCoefSubMoreTracks(3,g10*rplanet,true,tracks,relweights);
   
   % The spherical-harmonic coefficients still have the planet's radius in them.
   % To have the same normalization as Kivelson, need to divide this out

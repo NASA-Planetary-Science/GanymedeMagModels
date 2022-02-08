@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks)
+function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks,relweights)
 
   % This is basically the same as invSkipCoef, but I add the option
   % To subtract a pre-given value for the c10 coefficient
@@ -7,6 +7,7 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
   
   %tracks=[1,2,28,7,29,0];
   defval('tracks',[1,2,28,7,29,101]);
+  defval('relweights',ones(size(tracks)))
   
   %rplanet=1;
   rplanet = 2631.2
@@ -66,9 +67,9 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
     % This sets up the weights that Kivelson et al used.
     wfac = 1/max(abs([Bx{i}(:);By{i}(:);Bz{i}(:)]));
     weights = [weights;  
-            wfac * ones(size(Bx{i})) * specialfact;
-            wfac * ones(size(By{i})) * specialfact;
-            wfac * ones(size(Bz{i})) * specialfact];
+            wfac * ones(size(Bx{i})) * relweights(i);
+            wfac * ones(size(By{i})) * relweights(i);
+            wfac * ones(size(Bz{i})) * relweights(i)];
     
   end
 

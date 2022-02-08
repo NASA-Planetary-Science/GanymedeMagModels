@@ -23,12 +23,16 @@ Make sure that you set the path in initialize to the correct path of your Slepia
 Then run makeMyField(g10,Lmax,filename), for example
 
 makeMyField(-700,3,'Lmax_3_g10_-700_allGalileoTracks')
+or
+makeMyField(-700,3,'Lmax3_g10_-700_JunoAndAllGalileo')
 
 Plotting:
 
 In the command line, run ./makeMyFigs.sh filename for example:
 
 ./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86
+or
+./makeMyFigsJuno.sh Lmax3_g10_-700_JunoAndAllGalileo 1115.88
 
 For the plotting you need to have GMT 6 installed.
 
