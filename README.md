@@ -40,7 +40,7 @@ in the folder "spec".
 
 For example:
 
-'./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86'
+`./makeMyFigs.sh Lmax_3_g10_-700_allGalileoTracks 1119.86`
 
 The figures are saved in the "figures" folder
 
