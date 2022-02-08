@@ -1,0 +1,14 @@
+# Use the command in the file wget_jnosp_1000_210501_210801.tcsh to
+  download the Spice Kernels that allow for transforming the
+  Jupiter-centered coordinates of the Juno data into the
+  Ganymede-centered coordinates.
+
+# Then use the function JunoData.py to transform the Juno data into
+  Ganymede reference frame
+  You will need to software package SpiceyPy installed:
+  pip install spiceypy
+
+# The file MagData/fgm_jno_l3_2021158pc_r1s_v01_nohdr.txt is the same
+  as June07-JNO-J-3-FGM-CAL-V1.0/fgm_jno_l3_2021158pc_r1s_v01.sts, but
+  with the header deleted.
+

@@ -6,7 +6,7 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
   % Need to then solve without it of course!!!
   
   %tracks=[1,2,28,7,29,0];
-  defval('tracks',[1,2,28,7,29]);
+  defval('tracks',[1,2,28,7,29,101]);
   
   %rplanet=1;
   rplanet = 2631.2

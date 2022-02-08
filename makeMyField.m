@@ -12,6 +12,9 @@ function makeMyField(g10,Lmax,filename)
   % You also need to provide a filename as which the coefficients
   % will be saved
   %
+  % You can choose which tracks to use. Track 101 is Juno's first track
+  % From June 07, 2021
+  %
   % The saved coefficients are normalized in the same way as the
   % coefficients published by Kivelson (fully normalized, with a
   % factor 2), because they used the cartesian formulation.
@@ -21,13 +24,13 @@ function makeMyField(g10,Lmax,filename)
   % function. For each track the order of the uniform field values is
   % X, Y, Z. So you have G1 X, G1 Y, G1 Z, G2 X, G2 Y, etc
   %
-  % Last modified by plattner-at-alumni.ethz.ch, 01/20/2022
+  % Last modified by plattner-at-alumni.ethz.ch, 02/08/2022
 
-  tracks = [1,2,28,7,29];
+  tracks = [1,2,28,7,29,101];
 
   rplanet = 2631.2;
   
-  [coefs,~,~,~] = invSkipCoefSubMoreTracks(3,g10*rplanet,true,[1,2,28,7,29]);
+  [coefs,~,~,~] = invSkipCoefSubMoreTracks(3,g10*rplanet,true,tracks);
   
   % The spherical-harmonic coefficients still have the planet's radius in them.
   % To have the same normalization as Kivelson, need to divide this out

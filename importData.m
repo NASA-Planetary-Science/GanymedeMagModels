@@ -1,5 +1,5 @@
 function [data,time] = importData(filename)
-  % data =  Bx, By, Bz, Bbs, X, Y, Z
+  % data =  Bx, By, Bz, Babs, X, Y, Z
   % time: can use month(time) or hour(time) or second(time)
   
   formatSpec = '%23s%11f%10f%10f%10f%10f%10f%f%[^\n\r]';

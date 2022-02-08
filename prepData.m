@@ -1,16 +1,24 @@
 function [Bx, By, Bz, X, Y, Z] = prepData(track,rplanet)
 
   % I am also adding a fantasy track
-  
-  filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
 
+  if track < 100
+    filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
+  else
+    filename = sprintf('JunoData/ORB%03d_GAN_GPHIO.TAB',track);
+  end
+    
   [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
 
   
   % Load the data
   if track % If it is a positive track number
-    [data,time] = importData(filename);
-
+    if track < 100
+      [data,time] = importData(filename);
+    else
+      [data,time] = importJunoData(filename);
+    end
+      
     % Keep only data within time limits
     index = time >= starttime & time <= endtime;
     data = data(index,:);

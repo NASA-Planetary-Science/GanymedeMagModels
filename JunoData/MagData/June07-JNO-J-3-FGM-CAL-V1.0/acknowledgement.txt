@@ -1,0 +1,6 @@
+When using delivered data please acknowledge the data provider and 
+PDS in accordance with the PDS citation policy. Full details can be 
+found at:
+
+http://pds-ppi.igpp.ucla.edu/citations_policy.jsp
+

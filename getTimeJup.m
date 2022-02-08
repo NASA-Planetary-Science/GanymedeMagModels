@@ -38,8 +38,14 @@ function [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track)
       Bbgx = -9;
       Bbgy = -83;
       Bbgz = -79;
-    case 0 
-        warning('Also using fantasy track 0')
+    case 101
+      starttime=datetime(2021,6,7,16,53,40);
+      endtime=datetime(2021,6,7,16,58,00);
+      Bbgx = -12.6; % I got -13.9 before and -11.3 after...
+      Bbgy = 18.75; % I got 0.3 before and 37.2 after.
+      Bbgz = -74; % I got -66.9 before and -81.3 after
+    #case 0 
+    #    warning('Also using fantasy track 0')
     otherwise
       error('No such track')
   end
