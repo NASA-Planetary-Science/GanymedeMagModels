@@ -44,3 +44,35 @@ For example:
 
 The figures are saved in the "figures" folder
 
+
+
+### Additional calculations and figures
+
+#### Tracks
+
+To show the tracks, run in Matlab or Octave:
+
+`exportTracks`
+
+Then, in a command line, run
+
+`./plotTracks.sh`
+
+or
+
+`./plotTracksTalk.sh`
+
+
+#### Correlation matrix
+
+To calculate and export the correlation matrix, run in Matlab or Octave:
+
+`showCorr();`
+
+To plot the correlation matrix in GMT, run in the command line:
+
+`./plotCorrelation.sh CorrMat_Lmax3_weighting_true_allTracks`
+
+or
+
+`./plotCorrelationTalk.sh CorrMat_Lmax3_weighting_true_allTracks`

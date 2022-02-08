@@ -37,3 +37,5 @@ or
 For the plotting you need to have GMT 6 installed.
 
 The figures are saved in the "figures" folder
+
+
