@@ -37,9 +37,9 @@ function makeMyField(g10,Lmax,filename,tracks,relweights)
 
 
   if g10
-    [coefs,~,~,~] = invSkipCoefSubMoreTracks(3,g10*rplanet,true,tracks,relweights);
+    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights);
   else
-    [coefs,~,~,~] = invMoreTracks(3,true,tracks,relweights);
+    [coefs,~,~,~] = invMoreTracks(Lmax,true,tracks,relweights);
   end
   
   % The spherical-harmonic coefficients still have the planet's radius in them.

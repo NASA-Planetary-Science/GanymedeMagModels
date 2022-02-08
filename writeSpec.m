@@ -19,7 +19,7 @@ function writeSpec(coef,filename)
   Lmax=length(spc)-1;
   ls = 1:Lmax;
   
-  rs = findDepthMinDiff_McLeod(spc,ls,rplanet,rplanet,1000,0,Lmax,false);
+  rs = findDepthMinDiff_McLeod(spc,ls,rplanet,rplanet,200,0,Lmax,false);
 
   round(rs)
 
