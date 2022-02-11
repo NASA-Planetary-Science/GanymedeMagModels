@@ -25,8 +25,8 @@ gmt plot exportedTracks/Galileo7.txt -C -Sc0.1c
 gmt plot exportedTracks/Galileo28.txt -C -Sc0.1c 
 gmt plot exportedTracks/Galileo29.txt -C -Sc0.1c 
 
-gmt plot exportedTracks/Juno1.txt -Wfaint,200 -Sc0.20c 
-gmt plot exportedTracks/Juno1.txt -C -Sc0.10c
+#gmt plot exportedTracks/Juno1.txt -Wfaint,200 -Sc0.20c 
+gmt plot exportedTracks/Juno1.txt -C -Sc0.1c
 
 gmt text <<EOF
 -153 18 G1
