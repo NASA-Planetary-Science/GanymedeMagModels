@@ -136,7 +136,7 @@ dates=2021-06-07T16:54:01/2021-06-07T16:58:00
 tstep=2
 
 gmt subplot set 0,3
-gmt plot data/JunoData/J1_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa${tstep}M -Bx+l"June 07, 2021" -W${thick} -B+t"J1"
+gmt plot data/JunoData/J1_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa${tstep}M -Bx+l"June 07, 2021" -W${thick} -B+t"J"
 gmt plot data/${1}/G101_BX_sim.txt -W${thick2},${col},$type
 rmsX=$(gmt math data/JunoData/J1_BX.txt data/${1}/G101_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text <<EOF

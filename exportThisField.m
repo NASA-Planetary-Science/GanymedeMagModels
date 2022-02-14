@@ -1,4 +1,4 @@
-function exportThisField(coef,fname)
+function exportThisField(coef,fname,alt)
   % e.g. 
   % [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(3,-700*rplanet,true,[1,2,28,7,29]);
   % Lmax=3;
@@ -10,7 +10,7 @@ function exportThisField(coef,fname)
   %rplanet = 1;
   %alt = 0; % altfact*rplanet - rplanet;
   rplanet = 2631.2;
-  alt=0;%0.32*rplanet;
+  defval('alt',0);%0.32*rplanet;
   
   coef = [0;coef]*rplanet;
 

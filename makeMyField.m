@@ -50,7 +50,7 @@ function makeMyField(g10,Lmax,filename,tracks,relweights)
   writematrix(coefs,fullfile('coefs',[filename,'_coefs']))
   
   % Export the spatial field for GMT to plot
-  exportThisField(cf,[filename,'_field']);
+  exportThisField(cf,[filename,'_field'],0);
 
   % Write out data for data comparison in GMT plot
   exportTracks = tracks; % You can change for which tracks you want to export

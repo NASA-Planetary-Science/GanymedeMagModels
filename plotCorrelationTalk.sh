@@ -6,7 +6,7 @@ cells=15.5
 # For Lmax = 2
 #cells=8
 
-gmt begin ${1}_talk pdf
+gmt begin figures/${1}_talk pdf
 
 #gmt set FONT 9
 gmt set PS_PAGE_COLOR black

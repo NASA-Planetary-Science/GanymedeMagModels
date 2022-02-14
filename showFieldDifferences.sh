@@ -1,0 +1,7 @@
+./plotFieldsTracksTalk.sh Lmax2_JunoAndAllGalileo_minus_Lmax3_JunoAndAllGalileo_alt0_field_cmp1 360 90
+
+
+./plotFieldsTracksTalk.sh Lmax2_JunoAndAllGalileo_minus_Lmax3_JunoAndAllGalileo_alt800_field_cmp1 120 40
+
+
+./plotFieldsTracksTalk.sh Lmax2_JunoAndAllGalileo_minus_Lmax3_JunoAndAllGalileo_alt2000_field_cmp1 40 10
