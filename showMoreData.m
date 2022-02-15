@@ -3,9 +3,9 @@ function showMoreData()
   % range than when comparing data misfit
 
 
-  dtime = 8; % How many minutes before and after  
+  dtime = 25; % How many minutes before and after  
 
-  for track = [1,2,8,28,29]
+  for track = [1,2,7,8,28,29]
 
     filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
     [data,time] = importData(filename);
@@ -14,20 +14,24 @@ function showMoreData()
 
     index = time >= starttime - minutes(dtime) & time <= endtime + minutes(dtime);
 
+    starttime - minutes(dtime)
+
+    endtime + minutes(dtime)
+    
     data = data(index,:);
 
     time = time(index);
 
     filename = sprintf('G%d_BX',track);
-    fname = fullfile('data','longerData',[filename,'.txt']);
+    fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,1)),fname,'delimiter','\t');
 
     filename = sprintf('G%d_BY',track);
-    fname = fullfile('data','longerData',[filename,'.txt']);
+    fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,2)),fname,'delimiter','\t');
 
     filename = sprintf('G%d_BZ',track);
-    fname = fullfile('data','longerData',[filename,'.txt']);
+    fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,3)),fname,'delimiter','\t');
     
   end
@@ -48,14 +52,14 @@ function showMoreData()
   time = time(index);
   
   filename = sprintf('J_BX',track);
-  fname = fullfile('data','longerData',[filename,'.txt']);
+  fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,1)),fname,'delimiter','\t')
   
   filename = sprintf('J_BY',track);
-  fname = fullfile('data','longerData',[filename,'.txt']);
+  fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,2)),fname,'delimiter','\t')
   
   filename = sprintf('J_BZ',track);
-  fname = fullfile('data','longerData',[filename,'.txt']);
+  fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,3)),fname,'delimiter','\t')
   

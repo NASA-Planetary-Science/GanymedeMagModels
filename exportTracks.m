@@ -4,7 +4,7 @@ function exportTracks()
 
   %defval('maxalt',3000);
   
-  tracks=[1,2,28,7,29,101];
+  tracks=[1,2,28,7,8,29,101];
 
   for i=1:length(tracks)
     if tracks(i) < 100

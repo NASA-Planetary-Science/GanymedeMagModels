@@ -22,6 +22,7 @@ gmt makecpt -Corange,navy -T0/3000/200 -Z -D
 gmt plot exportedTracks/Galileo1.txt -C -Sc0.1c -Rd -JW7c  -Ba30g30
 gmt plot exportedTracks/Galileo2.txt -C -Sc0.1c
 gmt plot exportedTracks/Galileo7.txt -C -Sc0.1c
+gmt plot exportedTracks/Galileo8.txt -C -Sc0.1c
 gmt plot exportedTracks/Galileo28.txt -C -Sc0.1c 
 gmt plot exportedTracks/Galileo29.txt -C -Sc0.1c 
 
@@ -33,6 +34,7 @@ gmt text <<EOF
 -10 75 G2
 -150 38 G7
 138 -17 G28
+122 25 G8
 0 35 G29
 -99.89 0 J
 EOF
