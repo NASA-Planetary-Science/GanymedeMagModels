@@ -2,6 +2,7 @@ function showMoreData()
   % Prepares the data of all tracks to be shown. This is a longer
   % range than when comparing data misfit
 
+  rplanet = 2631.2;
 
   dtime = 25; % How many minutes before and after  
 
@@ -22,6 +23,8 @@ function showMoreData()
 
     time = time(index);
 
+    alt = sqrt(data(:,5).^2 + data(:,6).^2 + data(:,7).^2)*rplanet - rplanet;
+
     filename = sprintf('G%d_BX',track);
     fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,1)),fname,'delimiter','\t');
@@ -33,6 +36,10 @@ function showMoreData()
     filename = sprintf('G%d_BZ',track);
     fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,3)),fname,'delimiter','\t');
+
+    filename = sprintf('G%d_alt',track);
+    fname = fullfile('data','extendedData',[filename,'.txt']);
+    writetable(table(time,alt),fname,'delimiter','\t');
     
   end
 
@@ -50,16 +57,21 @@ function showMoreData()
   data = data(index,:);
   
   time = time(index);
+
+  alt = sqrt(data(:,5).^2 + data(:,6).^2 + data(:,7).^2)*rplanet - rplanet;
   
-  filename = sprintf('J_BX',track);
+  filename = 'J_BX';
   fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,1)),fname,'delimiter','\t')
   
-  filename = sprintf('J_BY',track);
+  filename = 'J_BY';
   fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,2)),fname,'delimiter','\t')
   
-  filename = sprintf('J_BZ',track);
+  filename = 'J_BZ';
   fname = fullfile('data','extendedData',[filename,'.txt']);
   writetable(table(time,data(:,3)),fname,'delimiter','\t')
   
+  filename = 'J_alt';
+  fname = fullfile('data','extendedData',[filename,'.txt']);
+  writetable(table(time,alt),fname,'delimiter','\t');

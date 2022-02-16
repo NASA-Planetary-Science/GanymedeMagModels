@@ -10,6 +10,10 @@ gmt set FORMAT_DATE_MAP yyyy-mm-dd
 gmt set FONT_LABEL 12p
 gmt set FONT_ANNOT 12p
 
+abot=0
+atop=5000
+
+titleshift=1.25
 
 thick=0.5p
 #col=blue
@@ -22,7 +26,7 @@ shadecol=220
 
 labpos=-0.25
 
-gmt subplot begin 7x3 -Fs5c/3c -Cw-0.4c
+gmt subplot begin 7x4 -Fs5c/3c -Cw-0.4c
 # 6x3
 
 
@@ -51,7 +55,10 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/G1_BX.txt  -Bpxa${tstep}  -W${thick} -B+t"@%2%B@%%@-X@-"
+gmt plot data/extendedData/G1_BX.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-X@-"
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-X@- [nT]
+EOF
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 6
@@ -87,7 +94,10 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/G1_BY.txt  -Bpxa${tstep}  -W${thick} -B+t"@%2%B@%%@-Y@-"
+gmt plot data/extendedData/G1_BY.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Y@-"
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-Y@- [nT]
+EOF
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 -79
@@ -116,7 +126,10 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/G1_BZ.txt   -Bpxa${tstep}  -W${thick} -B+t"@%2%B@%%@-Z@-"
+gmt plot data/extendedData/G1_BZ.txt   -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Z@- [nT]"
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-Z@- [nT]
+EOF
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 -79
@@ -125,6 +138,35 @@ EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
+EOF
+
+
+
+gmt subplot set 0,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G1_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} altitude [km]
+EOF
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
+0.1 0.1 ${abot}
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  June 27, 1996
@@ -231,6 +273,31 @@ gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
 EOF
+
+
+
+gmt subplot set 1,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G2_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
+EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Sep 6, 1996
 EOF
@@ -335,6 +402,33 @@ EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
+EOF
+
+
+
+
+gmt subplot set 2,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G7_alt.txt   -Bpxa${tstep}  -W${thick}
+
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Apr 5, 1997
@@ -442,6 +536,32 @@ gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
 EOF
+
+
+
+
+gmt subplot set 3,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G8_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
+EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  May 7, 1997
 EOF
@@ -547,14 +667,35 @@ gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
 EOF
+
+
+
+
+gmt subplot set 4,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G28_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
+EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  May 20, 2000
 EOF
-
-
-
-
-
 
 
 
@@ -659,6 +800,31 @@ EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
+EOF
+
+
+
+gmt subplot set 5,3
+#atop=3000
+#abot=500
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/G29_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Dec 28, 2000
@@ -767,6 +933,30 @@ EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
+EOF
+
+
+
+gmt subplot set 6,3
+#atop=3000
+gmt basemap -JX? -R${date1}/${date2}/${abot}/${atop} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${atop}
+${date1} ${abot}
+${cut1} ${abot}
+${cut1} ${atop}
+${date1} ${atop}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${atop}
+${cut2} ${abot}
+${date2} ${abot}
+${date2} ${atop}
+${cut2} ${atop}
+EOF
+gmt plot data/extendedData/J_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt text -JX? -R0/1/0/1 -N <<EOF
+0.1 0.9 ${atop}
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  June 07, 2021
