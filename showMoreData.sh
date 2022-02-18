@@ -56,13 +56,13 @@ ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G1_BX.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-X@-"
-gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-X@- [nT]
-EOF
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 6
 $date2 6
+EOF
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-X@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -95,13 +95,13 @@ ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G1_BY.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Y@-"
-gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-Y@- [nT]
-EOF
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 -79
 $date2 -79
+EOF
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-Y@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${Blim}
@@ -126,14 +126,14 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/G1_BZ.txt   -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Z@- [nT]"
-gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-Z@- [nT]
-EOF
+gmt plot data/extendedData/G1_BZ.txt   -Bpxa${tstep}  -W${thick} 
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 -79
 $date2 -79
+EOF
+gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
+0.5 ${titleshift} @%2%B@%%@-Z@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${Blim}
@@ -166,7 +166,6 @@ gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
-0.1 0.1 ${abot}
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  June 27, 1996

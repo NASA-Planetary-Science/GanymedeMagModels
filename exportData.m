@@ -3,7 +3,7 @@ function exportData()
 
   rplanet = 2631.2;
   
-  for track=[1,2,28];
+  for track=[1,2,28,7,8,29];
 
     filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
     [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
