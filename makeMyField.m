@@ -30,7 +30,8 @@ function makeMyField(g10,Lmax,filename,tracks,relweights)
   %
   % Last modified by plattner-at-alumni.ethz.ch, 02/08/2022
 
-  defval('tracks',[1,2,28,7,8,29,101]);
+  %defval('tracks',[1,2,28,7,8,29,101]);
+  defval('tracks',[1,2,7,8,28,29,101]);
   defval('relweights',ones(size(tracks)))
 
   rplanet = 2631.2;
