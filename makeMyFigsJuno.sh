@@ -6,14 +6,14 @@
 # or
 # ./makeMyFigs.sh Lmax3_g10_-700_JunoAndAllGalileo 1116
 
-#cmax=1500
-#cstep=500
+#cmax=1600
+#cstep=800
 
-cmax=2000
-cstep=1000
-
-#cmax=3000
+#cmax=2000
 #cstep=1000
+
+cmax=3000
+cstep=1500
 
 ./plotDataJuno.sh ${1}_simData
 ./plotDataJunoTalk.sh ${1}_simData

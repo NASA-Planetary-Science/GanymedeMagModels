@@ -26,5 +26,5 @@ function writeSpec(coef,filename)
 
   spc=spc(2:end);
   
-  dlmwrite(fullfile('specs',[filename,sprintf('_rs_%gkm.txt',rs)]),[ls(:),spc],'delimiter','\t');
+  dlmwrite(fullfile('specs',[filename,sprintf('_rs_%dkm.txt',round(rs))]),[ls(:),spc],'delimiter','\t');
 
