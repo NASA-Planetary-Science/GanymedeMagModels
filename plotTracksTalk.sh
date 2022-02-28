@@ -28,16 +28,18 @@ gmt makecpt -Corange,darkgreen -T0/3000/200 -Z -D
 gmt plot exportedTracks/Galileo1.txt -C -Sc0.1c -Rd -JW7c  -Ba30g30
 gmt plot exportedTracks/Galileo2.txt -C -Sc0.1c
 gmt plot exportedTracks/Galileo7.txt -C -Sc0.1c
+gmt plot exportedTracks/Galileo8.txt -C -Sc0.1c
 gmt plot exportedTracks/Galileo28.txt -C -Sc0.1c 
 gmt plot exportedTracks/Galileo29.txt -C -Sc0.1c 
 
-gmt plot exportedTracks/Juno1.txt -Wfaint,200 -Sc0.20c 
+#gmt plot exportedTracks/Juno1.txt -Wfaint,200 -Sc0.20c 
 gmt plot exportedTracks/Juno1.txt -C -Sc0.10c
 
 gmt text <<EOF
 -153 18 G1
 -10 75 G2
 -150 38 G7
+122 25 G8
 138 -17 G28
 0 35 G29
 -99.89 0 J

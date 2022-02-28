@@ -6,12 +6,21 @@
 # or
 # ./makeMyFigs.sh Lmax3_g10_-700_JunoAndAllGalileo 1116
 
+#cmax=1500
+#cstep=500
+
+cmax=2000
+cstep=1000
+
+#cmax=3000
+#cstep=1000
 
 ./plotDataJuno.sh ${1}_simData
 ./plotDataJunoTalk.sh ${1}_simData
 
-./plotFields.sh ${1}_field_cmp1 1500 500
-./plotFieldsTalk.sh ${1}_field_cmp1 1500 500
+./plotFields.sh ${1}_field_cmp1 ${cmax} ${cstep}
+./plotFieldsTalk.sh ${1}_field_cmp1 ${cmax} ${cstep}
+./plotFieldsTracksTalk.sh ${1}_field_cmp1 ${cmax} ${cstep}
 # The last two numbers in plotFieldsTalk
 # give the max abs color and the label step in the colorbar
 
