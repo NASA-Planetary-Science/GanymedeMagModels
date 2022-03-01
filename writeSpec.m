@@ -28,3 +28,7 @@ function writeSpec(coef,filename)
   
   dlmwrite(fullfile('specs',[filename,sprintf('_rs_%dkm.txt',round(rs))]),[ls(:),spc],'delimiter','\t');
 
+  % Also write out best fit
+  spfit = McLeod(rs,rplanet,rplanet,Lmax,0);
+  spfit = bestA(spfit(2:end),spc)*spfit(2:end);
+  dlmwrite(fullfile('specs',[filename,sprintf('_rs_%dkm_fittedMcLeod.txt',round(rs))]),[ls(:),spfit],'delimiter','\t');
