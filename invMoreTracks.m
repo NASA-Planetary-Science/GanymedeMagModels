@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights)
+function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,alpha)
 
   % This is basically the same as invSkipCoefSubMoreTracks, but doesn't fix c10
 
@@ -29,26 +29,34 @@ function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights)
     
     rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
     
-    % Now subtract the evaluated coefficient.
-    % The first row of rGcart contains the values for the spherical-harmonic
-    % corresponding to c10
+    if alpha
+      % This option subtracts an induced field created by Jupiter's
+      % background field from the data. For reasons argued by
+      % Kivelson et al. (2002), the strongest parts of the induced field
+      % Will be along the axis pointing toward Jupiter, so that is with
+      % the Y_{1,-1} spherical harmonic. The factor alpha decides how
+      % effective Ganymede is at getting induced. 
 
-    % E10 = rGcart(1,:);
-    
-    % c10x = E10(1:length(Bx{i}))*c10sub;
-    % Bx{i} = Bx{i} - c10x(:);
-
-    % c10y = E10(length(By{i})+1:2*length(Bx{i}))*c10sub;
-    % By{i} = By{i} - c10y(:);
-
-    % c10z = E10(2*length(Bz{i})+1:end)*c10sub;
-    % Bz{i} = Bz{i} - c10z(:);
-
-    % Now remove the c10 spherical-harmonic from rGcart
-    % but before you do that, save a copy of the matrix
-    %SphMatAll = [SphMatAll;rGcart'];
-    
-    %rGcart = rGcart(2:end,:);
+      % We need Jupiter's background field
+      [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
+      
+      % The second row of rGcart corresponds to g_{1,-1}
+      indfact = -alpha*Bbgy * rplanet;
+      % The factor rplanet is necessary, because that's one of the differences
+      % in normalization between the spherical harmonics of Kivelson and ours.
+      % The other difference is the factor -2, but that one is taken care of
+      % in the function evalSpHarm
+      
+      BindX = indfact * rGcart(2,  1:length(Bx{i}));
+      BindY = indfact * rGcart(2,   length(Bx{i})+1:2*length(Bx{i}) );
+      BindZ = indfact * rGcart(2, 2*length(Bx{i})+1:end );
+      
+      % Now subtract this induced field from the data
+      Bx{i} = Bx{i} - BindX(:);
+      By{i} = By{i} - BindY(:);
+      Bz{i} = Bz{i} - BindZ(:);
+            
+    end
 
 
     SphMat = [SphMat;rGcart'];

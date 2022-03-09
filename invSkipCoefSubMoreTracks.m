@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks,relweights)
+function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks,relweights,alpha)
 
   % This is basically the same as invSkipCoef, but I add the option
   % To subtract a pre-given value for the c10 coefficient
@@ -29,6 +29,36 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
     [Bx{i},By{i},Bz{i},X,Y,Z] = prepData(tracks(i),rplanet);
     
     rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
+
+    if alpha
+      % This option subtracts an induced field created by Jupiter's
+      % background field from the data. For reasons argued by
+      % Kivelson et al. (2002), the strongest parts of the induced field
+      % Will be along the axis pointing toward Jupiter, so that is with
+      % the Y_{1,-1} spherical harmonic. The factor alpha decides how
+      % effective Ganymede is at getting induced. 
+
+      % We need Jupiter's background field
+      [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
+      
+      % The second row of rGcart corresponds to g_{1,-1}
+      indfact = -alpha*Bbgy * rplanet;
+      % The factor rplanet is necessary, because that's one of the differences
+      % in normalization between the spherical harmonics of Kivelson and ours.
+      % The other difference is the factor -2, but that one is taken care of
+      % in the function evalSpHarm
+      
+      BindX = indfact * rGcart(2,   1:length(Bx{i}));
+      BindY = indfact * rGcart(2,   length(Bx{i})+1:2*length(Bx{i}) );
+      BindZ = indfact * rGcart(2, 2*length(Bx{i})+1:end );
+      
+      % Now subtract this induced field from the data
+      Bx{i} = Bx{i} - BindX(:);
+      By{i} = By{i} - BindY(:);
+      Bz{i} = Bz{i} - BindZ(:);
+            
+    end
+
     
     % Now subtract the evaluated coefficient.
     % The first row of rGcart contains the values for the spherical-harmonic

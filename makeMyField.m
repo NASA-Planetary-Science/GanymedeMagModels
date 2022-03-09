@@ -1,5 +1,5 @@
-function makeMyField(g10,Lmax,filename,tracks,relweights)
-  % makeMyField(g10,Lmax,filename)
+function makeMyField(g10,Lmax,filename,tracks,relweights,alpha)
+  % makeMyField(g10,Lmax,filename,tracks,relweights,alpha)
   %
   % Example:
   %
@@ -28,19 +28,24 @@ function makeMyField(g10,Lmax,filename,tracks,relweights)
   % function. For each track the order of the uniform field values is
   % X, Y, Z. So you have G1 X, G1 Y, G1 Z, G2 X, G2 Y, etc
   %
-  % Last modified by plattner-at-alumni.ethz.ch, 02/08/2022
+  % The alpha coefficient is to subtract a possible induced field from
+  % the data before inverting: subtract -alpha * BJupiter_Y * g11(r,th,ph)
+  % from the data 
+  %
+  % Last modified by plattner-at-alumni.ethz.ch, 03/08/2022
 
   %defval('tracks',[1,2,28,7,8,29,101]);
   defval('tracks',[1,2,7,8,28,29,101]);
   defval('relweights',ones(size(tracks)))
+  defval('alpha',0)
 
   rplanet = 2631.2;
 
 
   if g10
-    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights);
+    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,alpha);
   else
-    [coefs,~,~,~] = invMoreTracks(Lmax,true,tracks,relweights);
+    [coefs,~,~,~] = invMoreTracks(Lmax,true,tracks,relweights,alpha);
   end
   
   % The spherical-harmonic coefficients still have the planet's radius in them.
