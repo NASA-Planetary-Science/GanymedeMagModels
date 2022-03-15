@@ -17,12 +17,13 @@ function exportTracks()
       nr = tracks(i)-100;
     end
     
-    xi = Y;
-    eta = -X;
-    zeta = Z;
-    
-    [phi,lat,rad]=cart2sph(xi,eta,zeta);
+    % xi = Y;
+    % eta = -X;
+    % zeta = Z;
+    % [phi,lat,rad]=cart2sph(xi,eta,zeta);
 
+    [phi,lat,rad]=cart2sph(X,Y,Z);
+    
     % Remove above maxalt km above rplanet
     %indx = (rad <= rplanet+maxalt);
     %phi=phi(indx); lat = lat(indx); rad = rad(indx);

@@ -1,15 +1,22 @@
-function showMoreData()
+function showMoreData(tracks)
   % Prepares the data of all tracks to be shown. This is a longer
   % range than when comparing data misfit
 
+  defval('tracks',[1,2,7,8,28,29,101])
+  
   rplanet = 2631.2;
 
   dtime = 25; % How many minutes before and after  
 
-  for track = [1,2,7,8,28,29]
+  for track = tracks
 
-    filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
-    [data,time] = importData(filename);
+    if track<100
+      filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',track);
+      [data,time] = importData(filename);
+    else
+      filename = sprintf('JunoData/ORB%03d_GAN_IAU.TAB',track);
+      [data,time] = importJunoData(filename);
+    end
     
     [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
 
@@ -44,34 +51,34 @@ function showMoreData()
   end
 
 
-  % Now Juno Track
-  track=101;
+  % % Now Juno Track
+  % track=101;
   
-  filename = sprintf('JunoData/ORB%02d_GAN_GPHIO.TAB',track);
-  [data,time] = importJunoData(filename);
+  % filename = sprintf('JunoData/ORB%02d_GAN_GPHIO.TAB',track);
+  % [data,time] = importJunoData(filename);
   
-  [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
+  % [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
   
-  index = time >= starttime - minutes(dtime) & time <= endtime + minutes(dtime);
+  % index = time >= starttime - minutes(dtime) & time <= endtime + minutes(dtime);
   
-  data = data(index,:);
+  % data = data(index,:);
   
-  time = time(index);
+  % time = time(index);
 
-  alt = sqrt(data(:,5).^2 + data(:,6).^2 + data(:,7).^2)*rplanet - rplanet;
+  % alt = sqrt(data(:,5).^2 + data(:,6).^2 + data(:,7).^2)*rplanet - rplanet;
   
-  filename = 'J_BX';
-  fname = fullfile('data','extendedData',[filename,'.txt']);
-  writetable(table(time,data(:,1)),fname,'delimiter','\t')
+  % filename = 'J_BX';
+  % fname = fullfile('data','extendedData',[filename,'.txt']);
+  % writetable(table(time,data(:,1)),fname,'delimiter','\t')
   
-  filename = 'J_BY';
-  fname = fullfile('data','extendedData',[filename,'.txt']);
-  writetable(table(time,data(:,2)),fname,'delimiter','\t')
+  % filename = 'J_BY';
+  % fname = fullfile('data','extendedData',[filename,'.txt']);
+  % writetable(table(time,data(:,2)),fname,'delimiter','\t')
   
-  filename = 'J_BZ';
-  fname = fullfile('data','extendedData',[filename,'.txt']);
-  writetable(table(time,data(:,3)),fname,'delimiter','\t')
+  % filename = 'J_BZ';
+  % fname = fullfile('data','extendedData',[filename,'.txt']);
+  % writetable(table(time,data(:,3)),fname,'delimiter','\t')
   
-  filename = 'J_alt';
-  fname = fullfile('data','extendedData',[filename,'.txt']);
-  writetable(table(time,alt),fname,'delimiter','\t');
+  % filename = 'J_alt';
+  % fname = fullfile('data','extendedData',[filename,'.txt']);
+  % writetable(table(time,alt),fname,'delimiter','\t');

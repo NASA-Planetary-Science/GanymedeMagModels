@@ -1,6 +1,14 @@
-./plotFieldsTracks.sh Lmax2_alsoG8andJuno_minus_Lmax3_g10_-921_alsoG8andJuno_alt800_field_cmp1 500 250
 
-./plotFieldsTracks.sh Lmax3_alsoG8andJuno_minus_Lmax3_g10_-921_alsoG8andJuno_alt800_field_cmp1 400 200
+./plotFieldsTracks.sh Lmax2_minus_Lmax3_alt800_field_cmp1 110 55
+
+./plotFieldsTracks.sh Lmax3_minus_Lmax3_g10-900_alt800_field_cmp1 420 210
+
+./plotFieldsTracks.sh Lmax2_minus_Lmax3_g10-900_alt800_field_cmp1 510 205
+
+
+# ./plotFieldsTracks.sh Lmax2_alsoG8andJuno_minus_Lmax3_g10_-921_alsoG8andJuno_alt800_field_cmp1 500 250
+
+# ./plotFieldsTracks.sh Lmax3_alsoG8andJuno_minus_Lmax3_g10_-921_alsoG8andJuno_alt800_field_cmp1 400 200
 
 
 # ./plotFieldsTracksTalk.sh Lmax2_alsoG8andJuno_minus_Lmax3_alsoG8andJuno_alt0_field_cmp1 350 100

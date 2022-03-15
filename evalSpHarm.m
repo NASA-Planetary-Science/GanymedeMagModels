@@ -8,7 +8,7 @@ function rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, usecoef, phiO)
   onorout=0;
 
   defval('usecoef', true( (Lmax+1)^2-1, 1));
-  defval('phiO', true)
+  defval('phiO', false)
   
   % fact is a factor to relate our spherical-harmonics to the ones used by
   % Kivelson
@@ -17,10 +17,13 @@ function rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, usecoef, phiO)
   % This is a redundant part from the function phiO2sph.
   % But by repeating it here, I avoid needing to pass additional variables
 
+  
+  
   if phiO
-    xi = Y;
-    eta = -X;
-    zeta = Z;
+    error('disabled using phiO')
+    %xi = Y;
+    %eta = -X;
+    %zeta = Z;
   else
     xi = X;
     eta = Y;
@@ -47,6 +50,6 @@ function rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, usecoef, phiO)
     Ftheta = rG(i,length(rad)+1 : 2*length(rad));
     Fphi = rG(i,2*length(rad)+1 : end);
     
-    [Xc,Yc,Zc,Bxc,Byc,Bzc] = sph2phiO(rad,theta,phi,Frad,Ftheta,Fphi);
+    [Xc,Yc,Zc,Bxc,Byc,Bzc] = sph2IAU(rad,theta,phi,Frad,Ftheta,Fphi);
     rGcart(i,:) = fact*[Bxc(:)', Byc(:)', Bzc(:)'];
   end

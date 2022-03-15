@@ -44,8 +44,8 @@ function R=showCorr()
   colorbar
   caxis([-1,1])
 
-  name = sprintf('CorrMat_Lmax%d_weighting_%s_alltracks',Lmax,string(weighting));
-  name = sprintf('CorrMat_Lmax%d_weighting_%s_alltracksAlsoG8',Lmax,string(weighting));
+  %name = sprintf('CorrMat_Lmax%d_weighting_%s_alltracks',Lmax,string(weighting));
+  name = sprintf('CorrMat_Lmax%d_weighting_%s',Lmax,string(weighting));
 
   dlmwrite(fullfile('correlation', [name,'.txt']), R)
   

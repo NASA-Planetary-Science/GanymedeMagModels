@@ -39,7 +39,7 @@ cut1=1996-06-27T06:24:56
 cut2=1996-06-27T06:35:58
 
 gmt subplot set 0,0
-Blim=500
+Blim=200
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -58,8 +58,8 @@ EOF
 gmt plot data/extendedData/G1_BX.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-X@-"
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 6
-$date2 6
+$date1 -79
+$date2 -79
 EOF
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 0.5 ${titleshift} @%2%B@%%@-X@- [nT]
@@ -78,7 +78,7 @@ EOF
 
 
 gmt subplot set 0,1
-Blim=200
+Blim=500
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -97,8 +97,8 @@ EOF
 gmt plot data/extendedData/G1_BY.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Y@-"
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -79
-$date2 -79
+$date1 -6
+$date2 -6
 EOF
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 0.5 ${titleshift} @%2%B@%%@-Y@- [nT]
@@ -184,7 +184,7 @@ cut2=1996-09-06T19:05:27
 
 
 gmt subplot set 1,0
-Blim=380
+Blim=550
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -203,8 +203,8 @@ EOF
 gmt plot data/extendedData/G2_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 17
-$date2 17
+$date1 -73
+$date2 -73
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -218,7 +218,7 @@ ${labpos} 0 G2
 EOF
 
 gmt subplot set 1,1
-Blim=550
+Blim=380
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -237,8 +237,8 @@ EOF
 gmt plot data/extendedData/G2_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -73
-$date2 -73
+$date1 -17
+$date2 -17
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -314,7 +314,7 @@ cut2=1997-04-05T07:17:52
 
 
 gmt subplot set 2,0
-Blim=180
+Blim=150
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -333,8 +333,8 @@ EOF
 gmt plot data/extendedData/G7_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -3
-$date2 -3
+$date1 74
+$date2 74
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -348,7 +348,7 @@ ${labpos} 0 G7
 EOF
 
 gmt subplot set 2,1
-Blim=150
+Blim=180
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -367,8 +367,8 @@ EOF
 gmt plot data/extendedData/G7_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 84
-$date2 84
+$date1 3
+$date2 3
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -447,7 +447,7 @@ cut1=1997-05-07T15:53:42
 cut2=1997-05-07T15:57:51
 
 gmt subplot set 3,0
-Blim=200
+Blim=150
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -466,8 +466,8 @@ EOF
 gmt plot data/extendedData/G8_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -11
-$date2 -11
+$date1 11
+$date2 11
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -481,7 +481,7 @@ ${labpos} 0 G8
 EOF
 
 gmt subplot set 3,1
-Blim=150
+Blim=200
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -578,7 +578,7 @@ cut1=2000-05-20T10:08:05
 cut2=2000-05-20T10:12:19
 
 gmt subplot set 4,0
-Blim=300
+Blim=200
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -597,8 +597,8 @@ EOF
 gmt plot data/extendedData/G28_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -7
-$date2 -7
+$date1 78
+$date2 78
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -612,7 +612,7 @@ ${labpos} 0 G28
 EOF
 
 gmt subplot set 4,1
-Blim=200
+Blim=300
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
 ${date1} ${Blim}
@@ -631,8 +631,8 @@ EOF
 gmt plot data/extendedData/G28_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 78
-$date2 78
+$date1 -7
+$date2 -7
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -731,8 +731,8 @@ EOF
 gmt plot data/extendedData/G29_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -9
-$date2 -9
+$date1 -83
+$date2 -83
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -765,8 +765,8 @@ EOF
 gmt plot data/extendedData/G29_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 -83
-$date2 -83
+$date1 9
+$date2 9
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -845,40 +845,6 @@ cut1=2021-06-07T16:53:40
 cut2=2021-06-07T16:58:00
 
 gmt subplot set 6,0
-Blim=320
-gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
-gmt plot -G${shadecol} <<EOF
-${date1} ${Blim}
-${date1} -${Blim}
-${cut1} -${Blim}
-${cut1} ${Blim}
-${date1} ${Blim}
-EOF
-gmt plot -G${shadecol} <<EOF
-${cut2} ${Blim}
-${cut2} -${Blim}
-${date2} -${Blim}
-${date2} ${Blim}
-${cut2} ${Blim}
-EOF
-gmt plot data/extendedData/J_BX.txt -Bpxa${tstep}  -W${thick}
-# Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -12.6
-$date2 -12.6
-EOF
-gmt text -JX? -R0/1/0/1 <<EOF
-0.1 0.9 ${Blim}
-0.1 0.1 -${Blim}
-EOF
-gmt text -JX? -R0/1/-${Blim}/${Blim} -N <<EOF
--0.07 0 0
-EOF
-gmt text -JX? -R0/1/-${Blim}/${Blim} -N --FONT=20 <<EOF
-${labpos} 0 J
-EOF
-
-gmt subplot set 6,1
 Blim=220
 gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
 gmt plot -G${shadecol} <<EOF
@@ -895,11 +861,45 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/J_BY.txt  -Bpxa${tstep}  -W${thick}
+gmt plot data/extendedData/G101_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
-$date1 18.75
-$date2 18.75
+$date1 19
+$date2 19
+EOF
+gmt text -JX? -R0/1/0/1 <<EOF
+0.1 0.9 ${Blim}
+0.1 0.1 -${Blim}
+EOF
+gmt text -JX? -R0/1/-${Blim}/${Blim} -N <<EOF
+-0.07 0 0
+EOF
+gmt text -JX? -R0/1/-${Blim}/${Blim} -N --FONT=20 <<EOF
+${labpos} 0 J
+EOF
+
+gmt subplot set 6,1
+Blim=320
+gmt basemap -JX? -R${date1}/${date2}/-${Blim}/${Blim} -Bnswe
+gmt plot -G${shadecol} <<EOF
+${date1} ${Blim}
+${date1} -${Blim}
+${cut1} -${Blim}
+${cut1} ${Blim}
+${date1} ${Blim}
+EOF
+gmt plot -G${shadecol} <<EOF
+${cut2} ${Blim}
+${cut2} -${Blim}
+${date2} -${Blim}
+${date2} ${Blim}
+${cut2} ${Blim}
+EOF
+gmt plot data/extendedData/G101_BY.txt  -Bpxa${tstep}  -W${thick}
+# Jupiter bg field
+gmt plot -W${col} <<EOF
+$date1 6
+$date2 6
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -923,7 +923,7 @@ ${date2} -${Blim}
 ${date2} ${Blim}
 ${cut2} ${Blim}
 EOF
-gmt plot data/extendedData/J_BZ.txt -Bpxa${tstep}  -W${thick}
+gmt plot data/extendedData/G101_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
 gmt plot -W${col} <<EOF
 $date1 -74
@@ -953,7 +953,7 @@ ${date2} ${abot}
 ${date2} ${atop}
 ${cut2} ${atop}
 EOF
-gmt plot data/extendedData/J_alt.txt   -Bpxa${tstep}  -W${thick}
+gmt plot data/extendedData/G101_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
 EOF

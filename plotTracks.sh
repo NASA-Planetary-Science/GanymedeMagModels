@@ -30,13 +30,13 @@ gmt plot exportedTracks/Galileo29.txt -C -Sc0.1c
 gmt plot exportedTracks/Juno1.txt -C -Sc0.1c
 
 gmt text <<EOF
--153 18 G1
+-160 18 G1
 -10 75 G2
--150 38 G7
+-155 38 G7
 138 -17 G28
 122 25 G8
 0 35 G29
--99.89 0 J
+-100 5 J
 EOF
 
 

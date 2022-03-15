@@ -33,10 +33,10 @@ function exportSimData(coefs,tracks,foldername,trExport)
     
     [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tr);
     if tr < 100
-      filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',tr);
+      filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',tr);
       [data,time] = importData(filename);
     else
-      filename = sprintf('JunoData/ORB%03d_GAN_GPHIO.TAB',tr);
+      filename = sprintf('JunoData/ORB%03d_GAN_IAU.TAB',tr);
       [data,time] = importJunoData(filename);
     end
     index = time >= starttime & time <= endtime;
@@ -44,7 +44,7 @@ function exportSimData(coefs,tracks,foldername,trExport)
 
     [Bx,By,Bz,X,Y,Z] = prepData(tr,rplanet);
     rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
-
+    
     dcalc = rGcart'*cf;
 
     % Add the uniform field back in

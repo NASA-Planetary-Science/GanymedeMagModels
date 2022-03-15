@@ -3,7 +3,8 @@ function exportJunoData()
   rplanet = 2631.2;
   
   track=101;
-  filename = sprintf('JunoData/ORB%03d_GAN_GPHIO.TAB',track);
+  %filename = sprintf('JunoData/ORB%03d_GAN_GPHIO.TAB',track);
+  filename = sprintf('JunoData/ORB%03d_GAN_IAU.TAB',track);
 
   [data,time] = importJunoData(filename);
   [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);

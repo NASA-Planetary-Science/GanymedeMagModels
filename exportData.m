@@ -5,7 +5,8 @@ function exportData()
   
   for track=[1,2,28,7,8,29];
 
-    filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
+    %filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
+    filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',track);
     [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
     
     [data,time] = importData(filename);

@@ -2,16 +2,8 @@ function [data,time] = importData(filename)
   % data =  Bx, By, Bz, Babs, X, Y, Z
   % time: can use month(time) or hour(time) or second(time)
   
-  formatSpec = '%23s%11f%10f%10f%10f%10f%10f%f%[^\n\r]';
-  fileID = fopen(filename,'r');
-  dataArray = textscan(fileID, formatSpec, 'Delimiter', '', 'WhiteSpace', '', 'TextType', 'string', 'EmptyValue', NaN,  'ReturnOnError', false);
-  dataArray{1} = strtrim(dataArray{1});
-  fclose(fileID);
+  dataIAU = readtable(filename,'Delimiter','\t');
+  time = datetime(dataIAU.Var1, 'Format', 'yyyy-MM-dd''T''HH:mm:ss.SSS');
+  data = [dataIAU.Var2, dataIAU.Var3, dataIAU.Var4, dataIAU.Var5, dataIAU.Var6, dataIAU.Var7, dataIAU.Var8];
 
-  time=datetime(dataArray{1}, 'Format', 'yyyy-MM-dd''T''HH:mm:ss.SSS');
   
-  data=load(filename);
-  data=data(:,2:end);
-
-  % Output of data:
-  % Bx, By, Bz, Bbs, X, Y, Z

@@ -25,12 +25,12 @@ colmod=black   #blue
 coldat=100
 type='--'
 
-xlims=-500/0
-ylims=-500/550
+ylims=-0/500
+xlims=-500/550
 zlims=-1100/400
 
-xstep=100
-ystep=200
+ystep=100
+xstep=200
 zstep=300
 
 trfont=15p
@@ -55,7 +55,7 @@ gmt plot data/GalileoData/G1_BY.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"
 gmt plot data/${1}/G1_BY_sim.txt -W${thick},${colmod},$type
 rmsY=$(gmt math data/GalileoData/G1_BY.txt data/${1}/G1_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.3 0.87 rmse = ${rmsY} nT
+0.3 0.12 rmse = ${rmsY} nT
 EOF
 
 
@@ -75,7 +75,7 @@ gmt plot data/GalileoData/G2_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"
 gmt plot data/${1}/G2_BX_sim.txt -W${thick},${colmod},$type
 rmsX=$(gmt math data/GalileoData/G2_BX.txt data/${1}/G2_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text <<EOF 
-1996-09-06T18:59:50 -60 rmse = ${rmsX} nT
+1996-09-06T19:03:00 400 rmse = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} G2
@@ -104,7 +104,7 @@ gmt plot data/GalileoData/G28_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l
 gmt plot data/${1}/G28_BX_sim.txt -W${thick},${colmod},$type
 rmsX=$(gmt math data/GalileoData/G28_BX.txt data/${1}/G28_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text <<EOF
-2000-05-20T10:09:20 -60 rmse = ${rmsX} nT
+2000-05-20T10:09:20 400 rmse = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} G28
@@ -124,7 +124,7 @@ gmt plot data/GalileoData/G28_BZ.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l
 gmt plot data/${1}/G28_BZ_sim.txt -W${thick},${colmod},$type
 rmsZ=$(gmt math data/GalileoData/G28_BZ.txt data/${1}/G28_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text <<EOF
-2000-05-20T10:09:20 -900 rmse = ${rmsZ} nT
+2000-05-20T10:09:25 -900 rmse = ${rmsZ} nT
 EOF
 
 
@@ -134,7 +134,7 @@ gmt plot data/JunoData/J1_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx 
 gmt plot data/${1}/G101_BX_sim.txt -W${thick},${colmod},$type
 rmsX=$(gmt math data/JunoData/J1_BX.txt data/${1}/G101_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text <<EOF
-2021-06-07T16:54:55 -60 rmse = ${rmsX} nT
+2021-06-07T16:54:55 400 rmse = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} J

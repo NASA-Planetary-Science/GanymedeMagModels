@@ -28,8 +28,8 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
     
     [Bx{i},By{i},Bz{i},X,Y,Z] = prepData(tracks(i),rplanet);
     
-    rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
-
+    rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));   
+    
     if alpha
       % This option subtracts an induced field created by Jupiter's
       % background field from the data. For reasons argued by
