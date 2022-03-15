@@ -61,42 +61,44 @@ positions, lightTimes = sp.spkpos('Juno', et, 'IAU_GANYMEDE', 'NONE', 'GANYMEDE'
 ### Save style 2
 import datetime as dt
 
-outfile = 'ORB101_GAN_GPHIO.TAB'
+#outfile = 'ORB101_GAN_GPHIO.TAB'
+outfile = 'ORB101_GAN_IAU_fullDay.TAB'
 
 with open(outfile, 'w') as f:
     for i in range(0,npos):
         t = dt.datetime(int(data[i,0]),1,1) + dt.timedelta(data[i,1] -1)
 
+        ### I never managed to get the locations correct from the transformation.
+        ### Possibly the issue could be that I would need to normalize by the planet's radius,
+        ### Something like input/Jupiter radius, then transformation, then output*Ganymede radius
         #loctr = sp.pxform('IAU_JUPITER','IAU_GANYMEDE',et[i])
         #newpos = np.matmul(dat[i,0:3],loctr)
-        #X = -newpos[1]
-        #Y = newpos[0]
-        #Z = newpos[2]
 
-        X = -positions[i,1]
-        Y = positions[i,0]
-        Z = positions[i,2]
-        
+        #### Old: Pauper transformation to GPHIO, which is incorrect
+        # X = -positions[i,1]
+        # Y = positions[i,0]
+        # Z = positions[i,2] 
+        # # Transform IAU to GPHIO
+        # BX = -newdat[i,4]
+        # BY = newdat[i,3]
+        # BZ = newdat[i,5]  
+
+        #### New: We just keep it in IAU
+        X = positions[i,0]
+        Y = positions[i,1]
+        Z = positions[i,2] 
         # Transform IAU to GPHIO
-        BX = -newdat[i,4]
-        BY = newdat[i,3]
-        BZ = newdat[i,5]        
+        BX = newdat[i,3]
+        BY = newdat[i,4]
+        BZ = newdat[i,5]  
+
+        
 
         Babs = np.sqrt(np.power(BX,2.)+np.power(BY,2.)+np.power(BZ,2.))
-
-        # X = -newdat[i,1]
-        # Y = newdat[i,0]
-        # Z = newdat[i,2]
 
         secs = data[i,4]+data[i,5]/1000.
     
         f.write('%4d-%02d-%02dT%02d:%02d:%05g\t%4g\t%4g\t%4g\t%5g\t%6g\t%6g\t%6g\n' %(t.year,t.month,t.day,data[i,2],data[i,3],secs,BX,BY,BZ,Babs,X,Y,Z))
-
-
-# Change IAU Ganymede to GPHIO:
-
-# Write out table
-
 
 
 
