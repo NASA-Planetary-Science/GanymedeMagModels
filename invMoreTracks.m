@@ -41,7 +41,8 @@ function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,alp
       [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
       
       % The second row of rGcart corresponds to g_{1,-1}
-      indfact = -alpha*Bbgy * rplanet;
+      %      indfact = -alpha*Bbgy * rplanet;
+      indfact = -alpha*Bbgx * rplanet; % changed after switching to IAU
       % The factor rplanet is necessary, because that's one of the differences
       % in normalization between the spherical harmonics of Kivelson and ours.
       % The other difference is the factor -2, but that one is taken care of

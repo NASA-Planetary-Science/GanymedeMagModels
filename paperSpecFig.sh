@@ -21,10 +21,12 @@ gmt plot specs/Lmax3_spec_rs_966km.txt -W${lt}
 gmt plot specs/Lmax3_spec_rs_966km.txt -St${sym} -W1p  -l"@%2%L@%%@-max@- = 3"
 gmt plot specs/Lmax3_spec_rs_966km_fittedMcLeod.txt -W${lt},${colfit},-
 
-gmt plot specs/Lmax3_g10-900_spec_rs_1488km.txt -W${lt}
-gmt plot specs/Lmax3_g10-900_spec_rs_1488km.txt -Sa${sym} -W1p  -l"@%2%g@%%@-10@- = -900"
+gmt plot specs/Lmax3_g10-900_spec_rs_1488km.txt -W${lt} 
+gmt plot specs/Lmax3_g10-900_spec_rs_1488km.txt -Sa${sym} -W1p  -l"@%2%g@%%@-1@-@+0@+ = -900"
 gmt plot specs/Lmax3_g10-900_spec_rs_1488km_fittedMcLeod.txt -W${lt},${colfit},-
 
-gmt legend -DjBL
+#-l"@%2%g@%%@-1@-@+0@+ = -900"
+
+gmt legend -DjBL #--FONT=13
 
 gmt end show
