@@ -1,5 +1,16 @@
-function makeMyField(g10,Lmax,filename,tracks,relweights,alpha)
-  % makeMyField(g10,Lmax,filename,tracks,relweights,alpha)
+function makeMyField(g10,Lmax,filename,tracks,relweights,ind)
+  % makeMyField(g10,Lmax,filename,tracks,relweights,ind)
+  %
+  % INPUT:
+  %
+  % g10          value for g10 in Kivelson normalization
+  % Lmax         maximum spherical=harmonic degree
+  % filename     name for model
+  % tracks       which tracks to use and in what order?
+  % relweights   relative weights besides max value weighting
+  % ind          want to subtract an induced field? Use 'high', 'low', 'simple'
+  %              or a number for alpha, or [] to not subtract an induced field
+  %              before model calculation
   %
   % Example:
   %
@@ -37,15 +48,15 @@ function makeMyField(g10,Lmax,filename,tracks,relweights,alpha)
   %defval('tracks',[1,2,28,7,8,29,101]);
   defval('tracks',[1,2,7,8,28,29,101]);
   defval('relweights',ones(size(tracks)))
-  defval('alpha',0)
+  defval('ind',[])
 
   rplanet = 2631.2;
 
 
   if g10
-    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,alpha);
+    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,ind);
   else
-    [coefs,~,~,~] = invMoreTracks(Lmax,true,tracks,relweights,alpha);
+    [coefs,~,~,~] = invMoreTracks(Lmax,true,tracks,relweights,ind);
   end
   
   % The spherical-harmonic coefficients still have the planet's radius in them.
