@@ -875,7 +875,7 @@ gmt text -JX? -R0/1/-${Blim}/${Blim} -N <<EOF
 -0.07 0 0
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N --FONT=20 <<EOF
-${labpos} 0 J
+${labpos} 0 J34
 EOF
 
 gmt subplot set 6,1

@@ -137,7 +137,7 @@ gmt text <<EOF
 2021-06-07T16:54:55 400 rmse = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
-0.5 ${trloc} J
+0.5 ${trloc} J34
 EOF
 
 
