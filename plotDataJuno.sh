@@ -40,7 +40,7 @@ gmt subplot begin 3x4 -Fs5c/3c -Scb -Srl
 
 gmt subplot set 0,0
 dates=1996-06-27T06:24:56.226/1996-06-27T06:35:57.926
-gmt plot data/GalileoData/G1_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat} #-B+t"G1"
+gmt plot data/GalileoData/G1_BX.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"B@-x@- [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat} #-B+t"G1"
 gmt plot data/${1}/G1_BX_sim.txt -W${thick},${colmod},$type
 rmsX=$(gmt math data/GalileoData/G1_BX.txt data/${1}/G1_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
@@ -51,7 +51,7 @@ gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 EOF
 
 gmt subplot set 1,0
-gmt plot data/GalileoData/G1_BY.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"By [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat}
+gmt plot data/GalileoData/G1_BY.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"B@-y@- [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat}
 gmt plot data/${1}/G1_BY_sim.txt -W${thick},${colmod},$type
 rmsY=$(gmt math data/GalileoData/G1_BY.txt data/${1}/G1_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
@@ -60,7 +60,7 @@ EOF
 
 
 gmt subplot set 2,0
-gmt plot data/GalileoData/G1_BZ.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l"Bz [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat}
+gmt plot data/GalileoData/G1_BZ.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l"B@-z@- [nT]" -Bpxa5M -Bx+l"June 27, 1996" -W${thick},${coldat}
 gmt plot data/${1}/G1_BZ_sim.txt -W${thick},${colmod},$type
 rmsZ=$(gmt math data/GalileoData/G1_BZ.txt data/${1}/G1_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF

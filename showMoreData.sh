@@ -62,7 +62,7 @@ $date1 -79
 $date2 -79
 EOF
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-X@- [nT]
+0.5 ${titleshift} @%2%B@%%@-x@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -101,7 +101,7 @@ $date1 -6
 $date2 -6
 EOF
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-Y@- [nT]
+0.5 ${titleshift} @%2%B@%%@-y@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${Blim}
@@ -133,7 +133,7 @@ $date1 -79
 $date2 -79
 EOF
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
-0.5 ${titleshift} @%2%B@%%@-Z@- [nT]
+0.5 ${titleshift} @%2%B@%%@-z@- [nT]
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${Blim}
