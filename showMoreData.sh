@@ -166,6 +166,7 @@ gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 EOF
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.075 0.167 834
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  June 27, 1996
@@ -296,6 +297,7 @@ EOF
 gmt plot data/extendedData/G2_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.075 0.075 261
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Sep 6, 1996
@@ -428,6 +430,7 @@ gmt plot data/extendedData/G7_alt.txt   -Bpxa${tstep}  -W${thick}
 
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.1 0.62 3099
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Apr 5, 1997
@@ -560,6 +563,7 @@ EOF
 gmt plot data/extendedData/G8_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.1 0.32 1602
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  May 7, 1997
@@ -691,6 +695,7 @@ EOF
 gmt plot data/extendedData/G28_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.075 0.16 808
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  May 20, 2000
@@ -824,6 +829,7 @@ EOF
 gmt plot data/extendedData/G29_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.1 0.47 2335
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  Dec 28, 2000
@@ -834,7 +840,7 @@ EOF
 
 
 
-#### J
+#### J34
 
 tstep=20M
 #date1=2021-06-07T16:28:40.507
@@ -956,6 +962,7 @@ EOF
 gmt plot data/extendedData/G101_alt.txt   -Bpxa${tstep}  -W${thick}
 gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.9 ${atop}
+0.1 0.21 1038
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
 ${dats} 0  June 07, 2021
