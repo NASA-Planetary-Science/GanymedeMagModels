@@ -17,7 +17,7 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
   defval('ind',[])
   
   %rplanet=1;
-  rplanet = 2631.2
+  rplanet = 2631.2;
   fact=-2;
 
   SphMat = [];
@@ -52,7 +52,8 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
 
     else
 
-      if alpha
+      if length(ind)>0
+        alpha = ind;
         % This option subtracts an induced field created by Jupiter's
         % background field from the data. For reasons argued by
         % Kivelson et al. (2002), the strongest parts of the induced field
@@ -79,6 +80,10 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
         Bx{i} = Bx{i} - BindX(:);
         By{i} = By{i} - BindY(:);
         Bz{i} = Bz{i} - BindZ(:);
+
+
+      else
+        disp('No induced fields')
         
       end
 
