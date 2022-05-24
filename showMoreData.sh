@@ -21,6 +21,7 @@ thick=0.5p
 dats=1.08
 
 col=0.5p,150/150/150,-
+#coltrans=0.5p,150/150/150,.
 cut=0.5p,50/50/50,.
 shadecol=220
 
@@ -37,6 +38,10 @@ date1=1996-06-27T06:07:08.894
 date2=1996-06-27T06:52:37.259
 cut1=1996-06-27T06:24:56
 cut2=1996-06-27T06:35:58
+
+trans1=1996-06-27T06:17:57
+#trans1=1996-06-27T06:19:30
+
 
 gmt subplot set 0,0
 Blim=200
@@ -61,6 +66,12 @@ gmt plot -W${col} <<EOF
 $date1 -79
 $date2 -79
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 0.5 ${titleshift} @%2%B@%%@-x@- [nT]
 EOF
@@ -100,6 +111,12 @@ gmt plot -W${col} <<EOF
 $date1 -6
 $date2 -6
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 0.5 ${titleshift} @%2%B@%%@-y@- [nT]
 EOF
@@ -132,6 +149,12 @@ gmt plot -W${col} <<EOF
 $date1 -79
 $date2 -79
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+
 gmt text -JX? -R0/1/0/1 -N --FONT=20 <<EOF
 0.5 ${titleshift} @%2%B@%%@-z@- [nT]
 EOF
@@ -183,6 +206,8 @@ date2=1996-09-06T19:28:00
 cut1=1996-09-06T18:57:38
 cut2=1996-09-06T19:05:27
 
+trans1=1996-09-06T18:50:02
+trans2=1996-09-06T19:22:26
 
 gmt subplot set 1,0
 Blim=550
@@ -206,6 +231,15 @@ gmt plot data/extendedData/G2_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -73
 $date2 -73
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -241,6 +275,15 @@ gmt plot -W${col} <<EOF
 $date1 -17
 $date2 -17
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -268,6 +311,15 @@ gmt plot data/extendedData/G2_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -85
 $date2 -85
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -313,7 +365,8 @@ date1=1997-04-05T06:44:41.073
 date2=1997-04-05T07:40:18.737
 cut1=1997-04-05T07:07:53
 cut2=1997-04-05T07:17:52
-
+trans1=1997-04-05T07:00:07
+trans2=1997-04-05T07:36:35
 
 gmt subplot set 2,0
 Blim=150
@@ -337,6 +390,15 @@ gmt plot data/extendedData/G7_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 74
 $date2 74
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -372,6 +434,15 @@ gmt plot -W${col} <<EOF
 $date1 3
 $date2 3
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -399,6 +470,15 @@ gmt plot data/extendedData/G7_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -76
 $date2 -76
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -448,6 +528,8 @@ date1=1997-05-07T15:36:55.133
 date2=1997-05-07T16:22:23.465
 cut1=1997-05-07T15:53:42
 cut2=1997-05-07T15:57:51
+trans1=1997-05-07T15:48:31
+trans2=1997-05-07T16:02:33
 
 gmt subplot set 3,0
 Blim=150
@@ -471,6 +553,15 @@ gmt plot data/extendedData/G8_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 11
 $date2 11
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -506,6 +597,15 @@ gmt plot -W${col} <<EOF
 $date1 11
 $date2 11
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -533,6 +633,15 @@ gmt plot data/extendedData/G8_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -77
 $date2 -77
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -580,6 +689,8 @@ date1=2000-05-20T09:43:05.226
 date2=2000-05-20T10:36:41.22
 cut1=2000-05-20T10:08:05
 cut2=2000-05-20T10:12:19
+trans1=2000-05-20T10:04:44
+trans2=2000-05-20T10:18:39
 
 gmt subplot set 4,0
 Blim=200
@@ -603,6 +714,15 @@ gmt plot data/extendedData/G28_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 78
 $date2 78
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -638,6 +758,15 @@ gmt plot -W${col} <<EOF
 $date1 -7
 $date2 -7
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -665,6 +794,15 @@ gmt plot data/extendedData/G28_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -76
 $date2 -76
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -715,6 +853,8 @@ date1=2000-12-28T07:54:49.130
 date2=2000-12-28T08:55:20.794
 cut1=2000-12-28T08:19:49
 cut2=2000-12-28T08:34:19
+trans1=2000-12-28T08:16:33
+trans2=2000-12-28T08:43:36
 
 gmt subplot set 5,0
 Blim=200
@@ -738,6 +878,15 @@ gmt plot data/extendedData/G29_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -83
 $date2 -83
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -773,6 +922,15 @@ gmt plot -W${col} <<EOF
 $date1 9
 $date2 9
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -800,6 +958,15 @@ gmt plot data/extendedData/G29_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -79
 $date2 -79
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -849,6 +1016,8 @@ date1=2021-06-07T16:35:00
 date2=2021-06-07T17:10:00
 cut1=2021-06-07T16:53:40
 cut2=2021-06-07T16:58:00
+trans1=2021-06-07T16:49:43
+trans2=2021-06-07T17:00:57
 
 gmt subplot set 6,0
 Blim=220
@@ -872,6 +1041,15 @@ gmt plot data/extendedData/G101_BX.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 19
 $date2 19
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
@@ -907,6 +1085,15 @@ gmt plot -W${col} <<EOF
 $date1 6
 $date2 6
 EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
+EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}
 0.1 0.1 -${Blim}
@@ -934,6 +1121,15 @@ gmt plot data/extendedData/G101_BZ.txt -Bpxa${tstep}  -W${thick}
 gmt plot -W${col} <<EOF
 $date1 -74
 $date2 -74
+EOF
+# Transitions
+gmt plot -W${cut} <<EOF
+$trans1 $Blim
+$trans1 -$Blim
+EOF
+gmt plot -W${cut} <<EOF
+$trans2 $Blim
+$trans2 -$Blim
 EOF
 gmt text -JX? -R0/1/0/1 <<EOF
 0.1 0.9 ${Blim}

@@ -31,7 +31,7 @@ function showMoreData(tracks)
     time = time(index);
 
     alt = sqrt(data(:,5).^2 + data(:,6).^2 + data(:,7).^2)*rplanet - rplanet;
-
+    
     filename = sprintf('G%d_BX',track);
     fname = fullfile('data','extendedData',[filename,'.txt']);
     writetable(table(time,data(:,1)),fname,'delimiter','\t');
