@@ -15,7 +15,7 @@ gmt begin figures/${1} pdf
 gmt set FONT 18
 #gmt set MAP_DEFAULT_PEN +white
 
-gmt basemap -R0.8/3.2/1e3/3e6 -JX7c/5cl  -Bxa1 -Bya10p -Bx+l"spherical-harmonic degree @[l@[" -By+l"power [nT@+2@+]"
+gmt basemap -R0.8/3.2/5e2/3e6 -JX7c/5cl  -Bxa1 -Bya10p -Bx+l"spherical-harmonic degree @[l@[" -By+l"power [nT@+2@+]"
 
 gmt plot specs/${1}.txt -W2p
 gmt plot specs/${1}.txt -Sc4p -W1p

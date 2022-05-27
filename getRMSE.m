@@ -1,8 +1,10 @@
 function rmse=getRMSE(model,tracks)
-  % getRMS(model)
+  % rmse = getRMS(model,tracks)
   %
   % After exportSimData for all tracks, you can run this function
   % to calculate the RMS error
+  %
+  % Also calculate velocity
 
 
   defval('tracks',[1,2,28,7,8,29,101]);
@@ -28,7 +30,7 @@ function rmse=getRMSE(model,tracks)
       data = readtable(fullfile('data','GalileoData',sprintf('G%d_BZ.txt',tracks(i))),'delimiter','\t');
       sim = readtable(fullfile('data',[model,'_simData'],sprintf('G%d_BZ_sim.txt',tracks(i))),'delimiter','\t');
       rmse(3,i) = rms(data.Bz - sim.Var2);
-      
+   
     else  % Juno data
 
        % BX

@@ -1,7 +1,5 @@
 function [Bx, By, Bz, X, Y, Z] = prepData(track,rplanet)
 
-  % I am also adding a fantasy track
-
   if track < 100
     %filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
     filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',track);
