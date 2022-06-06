@@ -1,7 +1,7 @@
 function manyCoefLinComb(wht)
   
-  facs = 0:0.025:1;
-  
+  %facs = 0:0.025:1;
+  facs = 1;
   
   if strcmp(wht,'doit')
   

@@ -1,6 +1,10 @@
 function coefLinComb(coef1name,coef2name,fac1,outname)
 
-  Lmax=3;
+  if fac1==1
+    Lmax=2;
+  else
+    Lmax=3;
+  end
   tracks=[1,2,7,8,28,29,101];
     
   if(fac1>1 | fac1<0)
