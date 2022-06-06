@@ -11,16 +11,15 @@ function coefLinComb(coef1name,coef2name,fac1,outname)
   coefs2 = readmatrix(fullfile('coefs',[coef2name,'_coefs']));
 
   % Need to be same max sphharm degree
-  coefs = coefs1*fac1 + coefs2*(1-fac1);
-
+  if fac1==1
+    coefs = coefs1;
+  else
+    coefs = coefs1*fac1 + coefs2*(1-fac1);
+  end
   
   cf = coefs(1:(Lmax+1)^2-1);
 
-  try
   writematrix(coefs,fullfile('coefs',[outname,'_coefs']))
-  catch
-    keyboard
-  end
   
   % Export the spatial field for GMT to plot
   exportThisField(cf,[outname,'_field'],0);

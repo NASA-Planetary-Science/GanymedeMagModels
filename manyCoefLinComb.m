@@ -1,6 +1,6 @@
 function manyCoefLinComb(wht)
   
-  facs = 0.1:0.025:0.9;
+  facs = 0:0.025:1;
   
   
   if strcmp(wht,'doit')
@@ -8,7 +8,12 @@ function manyCoefLinComb(wht)
     for i=1:length(facs)
       
       outname = sprintf('LinComb_fac%gpc',round(facs(i)*100));
-      coefLinComb('Lmax2exp','Lmax3',facs(i),outname);
+      if facs(i)==1
+        % We only go to degree 2 if the factor for Lmax3 is zero
+        coefLinComb('Lmax2','Lmax3',facs(i),outname);
+      else
+        coefLinComb('Lmax2exp','Lmax3',facs(i),outname);
+      end
       
     end
 
