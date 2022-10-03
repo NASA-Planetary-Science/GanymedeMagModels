@@ -18,8 +18,8 @@ shftX=7.5c
 shftY=-3.8c
 
 #gmt subplot set 0,0
-col=3000
-step=1500
+col=2000
+step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
 gmt grdimage fields/Lmax1_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW
 # Plot magnetic equator
@@ -84,12 +84,12 @@ sym=5p
 colfit=120/120/120
 #gmt set FONT 14
 
-gmt basemap -R0.8/3.2/2e3/2e6 -JX${wid}/3cl  -Bxa1 -Bya10p -Bx+l"spherical-harmonic degree @[l@[" -By+l"power [nT@+2@+]" -X${shftX} -BnESw
+gmt basemap -R0.8/3.2/2e3/2e6 -JX6.5c/3cl  -Bxa1 -Bya10p -Bx+l"spherical-harmonic degree @[l@[" -By+l"power [nT@+2@+]" -X${shftX} -BnESw
 
 #gmt plot specs/KivelsonEtAl2002_spec_rs_229km.txt -W${lt}
 #gmt plot specs/KivelsonEtAl2002_spec_rs_229km.txt -Sc${sym} -W1p -l"K 2002"
 
-#gmt plot specs/Lmax1_spec_rs_210km.txt -Sc${sym} -W1p  -l"@%2%L@%%@-max@- = 1"
+gmt plot specs/Lmax1_spec_rs_210km.txt -Sa${sym} -W1p  -l"@%2%L@%%@-max@- = 1"
 
 gmt plot specs/Lmax2_spec_rs_182km.txt -W${lt}
 gmt plot specs/Lmax2_spec_rs_182km.txt -Ss${sym} -W1p -l"@%2%L@%%@-max@- = 2"
