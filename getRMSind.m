@@ -30,7 +30,8 @@ function rmsval = getRMSind(coefs,Lmax,tracks,indname)
 
     % Calculate and then subtract the calculated induced field
     [Bindx,Bindy,Bindz] = getInduced(tracks(i),indname,starttime,endtime);
-
+ 
+    
     % Now subtract this induced field from the data
     Bx = Bx - Bindx;
     By = By - Bindy;

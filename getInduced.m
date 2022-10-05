@@ -2,7 +2,9 @@ function [Bindx,Bindy,Bindz] = getInduced(track,modname,starttime,endtime)
 
   % Load model values
   tab = readtable(fullfile('inducedFields','GanymedeInduced',sprintf('indORB%02d_GAN_IAU.txt',track)));
-  time = tab.UTCTime;  
+  time = tab.UTCTime;
+  time = datetime(time,'InputFormat','yyyy-MM-dd''T''HH:mm:ss.SSS');
+  
   x = tab.x_R_G_;
   y = tab.y_R_G_;
   z = tab.z_R_G_;
@@ -30,13 +32,11 @@ function [Bindx,Bindy,Bindz] = getInduced(track,modname,starttime,endtime)
     subplot(3,1,3)
     plot(time,Bindz)
   end
-  
+
   % Cut to desired time range
   index = time >= starttime & time <= endtime;
   Bindx = Bindx(index);
   Bindy = Bindy(index);
   Bindz = Bindz(index);
-
-  
 
       
