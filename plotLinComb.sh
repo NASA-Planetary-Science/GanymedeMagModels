@@ -10,7 +10,7 @@ gmt makecpt -Cdavos -D -I -T5/6.5/0.1 -Z
 
 #### Models
 
-gmt basemap -JX10c/5c -R-0.03/1.03/100/1010 -Bx0.1+l"fraction of model @%2%L@%%@-max@- = 2" -By200+l"source radius @[r_s@[" -BneSW
+gmt basemap -JX10c/5c -R-0.03/1.03/100/1010 -Bx0.1+l"fraction of model @%2%L@%%@-max@- = 2, none" -By200+l"source radius @[r_s@[" -BneSW
 # gmt plot -Sc0.28c -G160 <<EOF
 # 0,966
 # 1,182
