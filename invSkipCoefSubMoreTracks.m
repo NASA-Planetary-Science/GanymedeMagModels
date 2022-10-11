@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks,relweights,ind)
+function [coefs,dtr,dtrc,rmstr,MM] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tracks,relweights,ind)
   % INPUT:
   %
   % Lmax         maximum spherical=harmonic degree
@@ -154,6 +154,7 @@ function [coefs,dtr,dtrc,rmstr] = invSkipCoefSubMoreTracks(Lmax,c10sub,useUF,tra
   % Now put the c10 coefficient back in
   coefs = [c10sub;coefs];  
   %coefs = [0;coefs];
+  MM = M'*M;
   
   % split into tracks
   indx = [1,cumsum(3*datlen)];

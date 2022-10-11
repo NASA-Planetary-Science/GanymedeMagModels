@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,ind)
+function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,ind)
   % INPUT:
   %
   % Lmax         maximum spherical=harmonic degree
@@ -52,14 +52,15 @@ function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,ind
       Bz{i} = Bz{i} - Bindz;
       
     else
-    
-      if alpha
+
+      if length(ind)>0
+        alpha = ind;
         % This option subtracts an induced field created by Jupiter's
         % background field from the data. For reasons argued by
         % Kivelson et al. (2002), the strongest parts of the induced field
         % Will be along the axis pointing toward Jupiter, so that is with
         % the Y_{1,-1} spherical harmonic. The factor alpha decides how
-        % effective Ganymede is at getting induced. 
+        % effective Ganymede is at getting induced.
         
         % We need Jupiter's background field
         [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
@@ -69,24 +70,26 @@ function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,ind
         indfact = -alpha*Bbgx/2 * rplanet; % changed after switching to
         % IAU I think this needs to be divided by 2, otherwise the field
         % is too large???
-      
+        
         % The factor rplanet is necessary, because that's one of the differences
         % in normalization between the spherical harmonics of Kivelson and ours.
         % The other difference is the factor -2, but that one is taken care of
         % in the function evalSpHarm
-      
+        
         BindX = indfact * rGcart(2,  1:length(Bx{i}));
         BindY = indfact * rGcart(2,   length(Bx{i})+1:2*length(Bx{i}) );
         BindZ = indfact * rGcart(2, 2*length(Bx{i})+1:end );
-      
+        
         % Now subtract this induced field from the data
         Bx{i} = Bx{i} - BindX(:);
         By{i} = By{i} - BindY(:);
         Bz{i} = Bz{i} - BindZ(:);
-            
+        
+      else
+        disp('No induced fields')        
       end
+   end
       
-    end
 
     SphMat = [SphMat;rGcart'];
     
@@ -127,6 +130,7 @@ function [coefs,dtr,dtrc,rmstr] = invMoreTracks(Lmax,useUF,tracks,relweights,ind
   dcalc = M*coefs; 
   d = d; 
   %dcalc = M*coefs;
+  MM = M'*M;
   
   % Now put the c10 coefficient back in
   %coefs = [c10sub;coefs];  

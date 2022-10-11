@@ -14,7 +14,7 @@ function doManyg10(g10,Lmax)
   for i=1:length(g10)
 
     % Solve for model
-    [coefs,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,ind);
+    [coefs,~,~,~,~] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,ind);
     cf = coefs(1:(Lmax+1)^2-1)/rplanet;
     coefs(1:(Lmax+1)^2-1) = cf;
     
