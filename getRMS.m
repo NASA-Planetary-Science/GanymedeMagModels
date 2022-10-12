@@ -1,5 +1,7 @@
-function rmsval = getRMS(coefs,Lmax,tracks)
+function rmstracks = getRMS(coefs,Lmax,tracks)
 % Should give same results as getRMSE, but this one doesn't require exporting the evaluated model at the tracks.
+
+  defval('tracks',[1,2,7,8,28,29,101]);
   
   rplanet = 2631.2;
   fact=-2;
@@ -53,4 +55,6 @@ function rmsval = getRMS(coefs,Lmax,tracks)
 
   %rmsval = sqrt(sum(sumsq)/sum(numdat));
 
-  rmsval = rms(sqrt(sumsq./numdat));
+  rmstracks = sqrt(sumsq./numdat);
+  %rmsval = rms(rmstracks);
+  

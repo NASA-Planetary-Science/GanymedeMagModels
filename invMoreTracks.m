@@ -1,4 +1,4 @@
-function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,ind)
+function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,ind,subselect)
   % INPUT:
   %
   % Lmax         maximum spherical=harmonic degree
@@ -8,16 +8,18 @@ function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,
   % ind          want to subtract an induced field? Use 'high', 'low', 'simple'
   %              or a number for alpha, or [] to not subtract an induced field
   %              before model calculation
+  % subselect    random data subselection fraction (e.g. 0.5 is 50%) 
   %
   % This is basically the same as invSkipCoefSubMoreTracks, but doesn't fix c10
 
 
-  
+
   
   %tracks=[1,2,28,7,29,0];
   defval('tracks',[1,2,28,7,29,101]);
   defval('relweights',ones(size(tracks)))
   defval('ind',[])
+  defval('subselect',[])
   
   %rplanet=1;
   rplanet = 2631.2
@@ -36,6 +38,19 @@ function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,
   for i=1:length(tracks)
     
     [Bx{i},By{i},Bz{i},X,Y,Z] = prepData(tracks(i),rplanet);
+
+    if subselect
+      subind = rand(size(X))<=subselect;
+    else
+      subind = true(size(X));
+    end
+
+    X = X(subind);
+    Y = Y(subind);
+    Z = Z(subind);
+    Bx{i} = Bx{i}(subind);
+    By{i} = By{i}(subind);
+    Bz{i} = Bz{i}(subind);
     
     rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
 
@@ -46,6 +61,10 @@ function [coefs,dtr,dtrc,rmstr,MM] = invMoreTracks(Lmax,useUF,tracks,relweights,
       % Get induced field
       [Bindx,Bindy,Bindz] = getInduced(tracks(i),ind,starttime,endtime);
 
+      Bindx = Bindx(subind);
+      Bindy = Bindy(subind);
+      Bindz = Bindz(subind);
+      
       % Now subtract this induced field from the data
       Bx{i} = Bx{i} - Bindx;
       By{i} = By{i} - Bindy;

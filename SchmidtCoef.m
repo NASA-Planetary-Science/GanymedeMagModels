@@ -4,17 +4,24 @@ function [coef,lmcosi] = SchmidtCoef(model,Lmax)
   % Writes out the Schmidt semi-normalized coefficients for a chosen
   % model and its maximum spherical-harmonic degree
 
-  coefs = load(fullfile('coefs',[model,'_coefs.txt']));
-
-  coef = coefs(1:(Lmax+1)^2-1);
+  if isstr(model)
+    coefs = load(fullfile('coefs',[model,'_coefs.txt']));
+  else
+    coefs = model;
+  end
+    
+  coef = coefs(1:(Lmax+1)^2-1,:);
   clear coefs;
 
   fac = 2; % The factor between fully normalized spherical-harmonics
   % and the normalization used by Kivelson et al. (2002)
 
-  coef = [0;coef]*fac;
-  coef = Simons2Olsen(coef);
-
+  %keyboard
+  coef = [zeros(1,size(coef,2));coef]*fac;
+  for i=1:size(coef,2)
+    coef(:,i) = Simons2Olsen(coef(:,i));
+  end
+  
   % Do I need to include the Condon Shortley phase??? Or is it just
   % negative? g10 definitely needs to be negative... But g10 is not
   % affected by the Condon Shortley phase... Condon shortley is by
@@ -35,6 +42,14 @@ function [coef,lmcosi] = SchmidtCoef(model,Lmax)
   % Undoing the Condon-Shortley phase
   [~,~,~,~,~,~,bigm] = addmon(Lmax);
   csphase = (-1).^bigm;
-  coef = coef.*csphase;
-  
-  lmcosi = coef2lmcosi(coef,0);
+
+  for i=1:size(coef,2)
+    %keyboard
+    coef(:,i) = coef(:,i).*csphase;
+  end
+
+  if size(coef,2)==1
+    lmcosi = coef2lmcosi(coef,0);
+  else
+    lmcosi = [];
+  end

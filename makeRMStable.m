@@ -9,16 +9,21 @@ function vals=makeRMStable()
   for Lmax=1:3
 
     for ind=1:3
-
-      coefs=load(fullfile('coefs',sprintf('Lmax%d_ind%s_coefs.txt',Lmax,indname{ind})));
+      [cfmat,rs]=getUncertainty([],Lmax,sprintf('Lmax%d_ind%s',Lmax,indname{ind}),[],[],indname{ind},.5,100);
+      coefs=mean(cfmat,2);
+      %coefs=load(fullfile('coefs',sprintf('Lmax%d_ind%s_coefs.txt',Lmax,indname{ind})));
       vals(Lmax,ind)= getRMSind(coefs,Lmax,tracks,indname{ind});
       
     end
 
   end
-  
+try
+  save('rmstable.mat','vals')     
+catch
+  keyboard
+end
     
-
+  
 
 
   

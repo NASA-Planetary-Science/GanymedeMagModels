@@ -21,9 +21,9 @@ shftY=-3.8c
 col=2000
 step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
-gmt grdimage fields/Lmax1_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW
+gmt grdimage fields/Lmax1_manycoefs_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW
 # Plot magnetic equator
-gmt grdcontour fields/Lmax1_field_cmp1.nc -An -C0, -W1p,black,-
+gmt grdcontour fields/Lmax1_manycoefs_field_cmp1.nc -An -C0, -W1p,black,-
 #gmt colorbar -DJTC+o0c/0.3c+w9.5c -B${step}+l"radial magnetic field [nT]"
 gmt plot exportedTracks/Galileo1.txt -S${trshp}  -G${trc}
 gmt plot exportedTracks/Galileo2.txt -S${trshp} -G${trc}
@@ -41,9 +41,9 @@ EOF
 #col=3000
 #step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
-gmt grdimage fields/Lmax2_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30  -BnEsw -X${shftX} 
+gmt grdimage fields/Lmax2_manycoefs_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30  -BnEsw -X${shftX} 
 # Plot magnetic equator
-gmt grdcontour fields/Lmax2_field_cmp1.nc -An -C0, -W1p,black,-
+gmt grdcontour fields/Lmax2_manycoefs_field_cmp1.nc -An -C0, -W1p,black,-
 #gmt colorbar -DJTC+o0c/0.3c+w9.5c -B${step}+l"radial magnetic field [nT]"
 gmt plot exportedTracks/Galileo1.txt -S${trshp}  -G${trc}
 gmt plot exportedTracks/Galileo2.txt -S${trshp} -G${trc}
@@ -60,9 +60,9 @@ EOF
 #col=3000
 #step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
-gmt grdimage fields/Lmax3_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW -X-${shftX} -Y${shftY}
+gmt grdimage fields/Lmax3_manycoefs_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW -X-${shftX} -Y${shftY}
 # Plot magnetic equator
-gmt grdcontour fields/Lmax3_field_cmp1.nc -An -C0, -W1p,black,-
+gmt grdcontour fields/Lmax3_manycoefs_field_cmp1.nc -An -C0, -W1p,black,-
 #gmt colorbar -DJBC+o3.75c/0.3c+w15c/0.3c -B${step}+l"radial magnetic field [nT]"
 gmt colorbar -DJBC+o0c/0.3c+w${wid}/0.3c -B${step}+l"radial magnetic field [nT]"
 gmt plot exportedTracks/Galileo1.txt -S${trshp}  -G${trc}
@@ -89,13 +89,13 @@ gmt basemap -R0.8/3.2/2e3/2e6 -JX6.5c/3cl  -Bxa1 -Bya10p -Bx+l"spherical-harmoni
 #gmt plot specs/KivelsonEtAl2002_spec_rs_229km.txt -W${lt}
 #gmt plot specs/KivelsonEtAl2002_spec_rs_229km.txt -Sc${sym} -W1p -l"K 2002"
 
-gmt plot specs/Lmax1_spec_rs_210km.txt -Sa${sym} -W1p  -l"@%2%L@%%@-max@- = 1"
+gmt plot specs/Lmax1_manycoefs_spec_rs_210km.txt -Sa${sym} -W1p  -l"@%2%L@%%@-max@- = 1"
 
-gmt plot specs/Lmax2_spec_rs_182km.txt -W${lt}
-gmt plot specs/Lmax2_spec_rs_182km.txt -Ss${sym} -W1p -l"@%2%L@%%@-max@- = 2"
+gmt plot specs/Lmax2_manycoefs_spec_rs_182km.txt -W${lt}
+gmt plot specs/Lmax2_manycoefs_spec_rs_182km.txt -Ss${sym} -W1p -l"@%2%L@%%@-max@- = 2"
 
-gmt plot specs/Lmax3_spec_rs_966km.txt -W${lt}
-gmt plot specs/Lmax3_spec_rs_966km.txt -St${sym} -W1p  -l"@%2%L@%%@-max@- = 3"
+gmt plot specs/Lmax3_manycoefs_spec_rs_965km.txt -W${lt}
+gmt plot specs/Lmax3_manycoefs_spec_rs_965km.txt -St${sym} -W1p  -l"@%2%L@%%@-max@- = 3"
 #gmt plot specs/Lmax3_spec_rs_966km_fittedMcLeod.txt -W${lt},${colfit},-
 
 # gmt plot specs/Lmax3_g10-900_spec_rs_1488km.txt -W${lt} 
