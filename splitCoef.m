@@ -2,9 +2,9 @@ function splitCoef()
   % Writes out the Schmidt coefficients split into their degrees for plotting
   % in the uncertainty figure
 
-  modlist = {'Lmax1','Lmax2','Lmax3'};
+  modlist = {'Lmax1_manycoefs','Lmax2_manycoefs','Lmax3_manycoefs'};
 
-  modindlist = {'Lmax1_indhigh','Lmax1_indlow','Lmax1_indsimple','Lmax2_indhigh','Lmax2_indlow','Lmax2_indsimple','Lmax3_indhigh','Lmax3_indlow','Lmax3_indsimple'};
+  modindlist = {'Lmax1_indhigh_manycoefs','Lmax1_indlow_manycoefs','Lmax1_indsimple_manycoefs','Lmax2_indhigh_manycoefs','Lmax2_indlow_manycoefs','Lmax2_indsimple_manycoefs','Lmax3_indhigh_manycoefs','Lmax3_indlow_manycoefs','Lmax3_indsimple_manycoefs'};
 
   modl = [1,2,3];
 
@@ -15,8 +15,12 @@ function splitCoef()
   Lrest = [];
   
   for i=1:length(modlist)
-    [coef,lmcosi] = SchmidtCoef(modlist{i},modl(i));
-
+    % With the manymodels, we need to load the unnormalized coefs
+    cf=load(fullfile('coefs',modlist{i}));
+    cfunnorm=mean(cf.cfmat,2);
+    [coef,lmcosi] = SchmidtCoef(cfunnorm,modl(i));
+%    [coef,lmcosi] = SchmidtCoef(modlist{i},modl(i));
+    
     L1m0 = [L1m0;[0,coef(2)]];
 
     Lrest = [Lrest;[(1:2)',coef(3:4)]];
@@ -44,7 +48,10 @@ function splitCoef()
   Lrest = [];
   
   for i=1:length(modindlist)
-    [coef,lmcosi] = SchmidtCoef(modindlist{i},modindl(i));
+    cf=load(fullfile('coefs',modindlist{i}));
+    cfunnorm=mean(cf.cfmat,2);
+    [coef,lmcosi] = SchmidtCoef(cfunnorm,modindl(i));
+%    [coef,lmcosi] = SchmidtCoef(modindlist{i},modindl(i));
 
     L1m0 = [L1m0;[0,coef(2)]];
 

@@ -8,20 +8,20 @@ function manyCoefLinComb(wht)
     for i=1:length(facs)
       
       outname = sprintf('LinComb_fac%gpc',round(facs(i)*100));
-      if facs(i)==1
+      %if facs(i)==1
         % We only go to degree 2 if the factor for Lmax3 is zero
-        coefLinComb('Lmax2','Lmax3',facs(i),outname);
-      else
-        coefLinComb('Lmax2exp','Lmax3',facs(i),outname);
-      end
+      %  coefLinComb('Lmax2','Lmax3',facs(i),outname);
+      %else
+      %  coefLinComb('Lmax2exp','Lmax3',facs(i),outname);
+      %end
+      % Wrote it such that it is always between Lmax=2 and Lmax=3
+      coefLinComb(facs(i),outname);
       
     end
 
   elseif strcmp(wht,'showspecs')
 
-    %rs = [918,867,812,753,689,617,535,438,310];
-    %rs = [918,905,893,880,867,853,840,826,812,798,783,768,753,738,722,705,689,671,654,636,617,598,578,557,535,513,489,464,438,410,379,346,310];
-    rs = [966,954,942,930,918,905,893,880,867,853,840,826,812,798,783,768,753,738,722,705,689,671,654,636,617,598,578,557,535,513,489,464,438,410,379,346,310,269,219,155,182];
+    rs = [965,954,942,930,917,905,892,879,866,853,840,826,812,797,783,768,753,737,721,705,688,671,654,635,617,597,577,557,535,512,489,464,438,409,379,346,310,268,219,155,182];
     % I got these from reading of the files from the output of 'doit';
     
     for i=1:length(facs)
@@ -36,8 +36,8 @@ function manyCoefLinComb(wht)
 
   elseif strcmp(wht,'calcrmse')
 
-    %rs = [918,867,812,753,689,617,535,438,310];
-    rs = [966,954,942,930,918,905,893,880,867,853,840,826,812,798,783,768,753,738,722,705,689,671,654,636,617,598,578,557,535,513,489,464,438,410,379,346,310,269,219,155,182];
+    rs = [965,954,942,930,917,905,892,879,866,853,840,826,812,797,783,768,753,737,721,705,688,671,654,635,617,597,577,557,535,512,489,464,438,409,379,346,310,268,219,155,182];
+  
     % I got these from reading of the files from the output of 'doit';
     
     for i=1:length(facs)

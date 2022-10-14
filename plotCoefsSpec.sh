@@ -28,34 +28,34 @@ sym=c4p
 scol=150/150/150
 
 
-gmt plot specs/Lmax1_indhigh_spec_rs_200km.txt -S${sym} -G${scol}
+gmt plot specs/Lmax1_indhigh_manycoefs_spec_rs_200km.txt -S${sym} -G${scol}
 
-gmt plot specs/Lmax2_indhigh_spec_rs_138km.txt -W${lt},${lcol}
-gmt plot specs/Lmax2_indhigh_spec_rs_138km.txt -S${sym} -G${scol}
+gmt plot specs/Lmax2_indhigh_manycoefs_spec_rs_137km.txt -W${lt},${lcol}
+gmt plot specs/Lmax2_indhigh_manycoefs_spec_rs_137km.txt -S${sym} -G${scol}
 
-gmt plot specs/Lmax3_indhigh_spec_rs_1077km.txt -W${lt},${lcol}
-gmt plot specs/Lmax3_indhigh_spec_rs_1077km.txt -S${sym} -G${scol} 
-
-
-
-gmt plot specs/Lmax1_indlow_spec_rs_210km.txt -S${sym} -G${scol} 
-
-gmt plot specs/Lmax2_indlow_spec_rs_137km.txt -W${lt},${lcol}
-gmt plot specs/Lmax2_indlow_spec_rs_137km.txt -S${sym} -G${scol} 
-
-gmt plot specs/Lmax3_indlow_spec_rs_1059km.txt -W${lt},${lcol}
-gmt plot specs/Lmax3_indlow_spec_rs_1059km.txt -S${sym} -G${scol}
+gmt plot specs/Lmax3_indhigh_manycoefs_spec_rs_1075km.txt -W${lt},${lcol}
+gmt plot specs/Lmax3_indhigh_manycoefs_spec_rs_1075km.txt -S${sym} -G${scol} 
 
 
 
+gmt plot specs/Lmax1_indlow_manycoefs_spec_rs_200km.txt -S${sym} -G${scol} 
 
-gmt plot specs/Lmax1_indsimple_spec_rs_210km.txt -S${sym} -G${scol}
+gmt plot specs/Lmax2_indlow_manycoefs_spec_rs_138km.txt -W${lt},${lcol}
+gmt plot specs/Lmax2_indlow_manycoefs_spec_rs_138km.txt -S${sym} -G${scol} 
 
-gmt plot specs/Lmax2_indsimple_spec_rs_137km.txt -W${lt},${lcol}
-gmt plot specs/Lmax2_indsimple_spec_rs_137km.txt -S${sym} -G${scol}
+gmt plot specs/Lmax3_indlow_manycoefs_spec_rs_1058km.txt -W${lt},${lcol}
+gmt plot specs/Lmax3_indlow_manycoefs_spec_rs_1058km.txt -S${sym} -G${scol}
 
-gmt plot specs/Lmax3_indsimple_spec_rs_1058km.txt -W${lt},${lcol}
-gmt plot specs/Lmax3_indsimple_spec_rs_1058km.txt -S${sym} -G${scol}
+
+
+
+gmt plot specs/Lmax1_indsimple_manycoefs_spec_rs_200km.txt -S${sym} -G${scol}
+
+gmt plot specs/Lmax2_indsimple_manycoefs_spec_rs_137km.txt -W${lt},${lcol}
+gmt plot specs/Lmax2_indsimple_manycoefs_spec_rs_137km.txt -S${sym} -G${scol}
+
+gmt plot specs/Lmax3_indsimple_manycoefs_spec_rs_1059km.txt -W${lt},${lcol}
+gmt plot specs/Lmax3_indsimple_manycoefs_spec_rs_1059km.txt -S${sym} -G${scol}
 
 
 
@@ -65,13 +65,13 @@ lcol=black
 sym=s4p
 
 
-gmt plot specs/Lmax1_spec_rs_210km.txt -S${sym} -W1p
+gmt plot specs/Lmax1_manycoefs_spec_rs_210km.txt -S${sym} -W1p
 
-gmt plot specs/Lmax2_spec_rs_182km.txt -W${lt},${lcol}
-gmt plot specs/Lmax2_spec_rs_182km.txt -S${sym}  -W1p
+gmt plot specs/Lmax2_manycoefs_spec_rs_182km.txt -W${lt},${lcol}
+gmt plot specs/Lmax2_manycoefs_spec_rs_182km.txt -S${sym}  -W1p
 
-gmt plot specs/Lmax3_spec_rs_966km.txt -W${lt},${lcol}
-gmt plot specs/Lmax3_spec_rs_966km.txt -S${sym}  -W1p
+gmt plot specs/Lmax3_manycoefs_spec_rs_965km.txt -W${lt},${lcol}
+gmt plot specs/Lmax3_manycoefs_spec_rs_965km.txt -S${sym}  -W1p
 
 
 

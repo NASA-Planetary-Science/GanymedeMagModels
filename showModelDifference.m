@@ -6,15 +6,24 @@ function showModelDifference(model1, Lmax1, model2, Lmax2)
   % end. Must also provide the maximum spherical-harmonic degree of
   % each model.
   %
+  % For example:
+  %
+  % showModelDifference('Lmax2_manycoefs',2,'Lmax3_manycoefs',3)
+  %
   % Last modified by plattner-at-alumni.ethz.ch, 02/14/2022
 
   alts = [0,800,2000];
 
   rplanet = 2631.2;
 
-  coefs1 = load(fullfile('coefs',[model1,'_coefs.txt']));
-  
-  coefs2 = load(fullfile('coefs',[model2,'_coefs.txt']));
+  %coefs1 = load(fullfile('coefs',[model1,'_coefs.txt']));
+  %coefs2 = load(fullfile('coefs',[model2,'_coefs.txt']));
+
+  cmat1 = load(fullfile('coefs',model1));
+  coefs1 = mean(cmat1.cfmat,2);
+
+  cmat2 = load(fullfile('coefs',model2));
+  coefs2 = mean(cmat2.cfmat,2);  
 
   cf1 = zeros(  (max(Lmax1,Lmax2) +1)^2-1 ,1);
   cf1(1:(Lmax1+1)^2-1) = coefs1(1:(Lmax1+1)^2-1);
