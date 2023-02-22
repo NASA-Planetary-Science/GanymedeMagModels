@@ -1,9 +1,10 @@
-function [cfmat,rs]=getUncertainty(g10,Lmax,filename,tracks,relweights,ind,subselect,nruns)
+function cfmat=getUncertainty(index,value,Lmax,filename,tracks,relweights,ind,subselect,nruns)
   % [cf,MM]=getUncertainty(g10,Lmax,filename,tracks,relweights,ind,subselect,nruns)
   %
   % INPUT:
   %
-  % g10          value for g10 in Kivelson normalization
+  % index        index of coefficient to fix
+  % value        value for coefficient to fix in Kivelson normalization
   % Lmax         maximum spherical=harmonic degree
   % filename     name for model
   % tracks       which tracks to use and in what order?
@@ -20,12 +21,13 @@ function [cfmat,rs]=getUncertainty(g10,Lmax,filename,tracks,relweights,ind,subse
   % You can choose which tracks to use. Track 101 is Juno's first track
   % From June 07, 2021
   %
-  % Last modified by plattner-at-alumni.ethz.ch, 10/12/2022
+  % Last modified by plattner-at-alumni.ethz.ch, 2/22/2023
 
   
 
 
   %defval('tracks',[1,2,28,7,8,29,101]);
+  defval('index',[])
   defval('tracks',[1,2,7,8,28,29,101]);
   defval('relweights',ones(size(tracks)))
   defval('ind',[])
@@ -34,8 +36,10 @@ function [cfmat,rs]=getUncertainty(g10,Lmax,filename,tracks,relweights,ind,subse
 
   parfor i=1:nruns
   
-    if g10
-      [coefs,~,~,~,MM] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,ind);
+    if index
+%      [coefs,~,~,~,MM] = invSkipCoefSubMoreTracks(Lmax,g10*rplanet,true,tracks,relweights,ind);
+      [coefs,~,~,~,MM] = invSkipChoosenCoefSubMoreTracks(Lmax,index,value*rplanet,...
+                                                         true,tracks,relweights,ind,subselect);
     else
       [coefs,~,~,~,MM] = invMoreTracks(Lmax,true,tracks,relweights,ind,subselect);
     end
@@ -63,7 +67,8 @@ function [cfmat,rs]=getUncertainty(g10,Lmax,filename,tracks,relweights,ind,subse
 
   % Save everything
   %writematrix(cfmat,fullfile('coefs',[filename,'_manycoefs']))
-  save(fullfile('coefs',[filename,'_manycoefs']),'cfmat','rs')
+%  save(fullfile('coefs',[filename,'_manycoefs']),'cfmat','rs')
+  save(fullfile('coefs',[filename,'_manycoefs']),'cfmat')
   
   % % Export the spatial field for GMT to plot
   % exportThisField(cf,[filename,'_field'],0);
