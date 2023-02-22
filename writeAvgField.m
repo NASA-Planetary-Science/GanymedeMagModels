@@ -1,9 +1,8 @@
-function writeAvgField(g10,Lmax,filename,tracks,relweights,ind)
-  % writeAvgField(g10,Lmax,filename,tracks,relweights,ind)
+function writeAvgField(Lmax,filename,tracks)
+  % writeAvgField(g10,Lmax,filename,tracks)
   %
   % INPUT:
   %
-  % g10          value for g10 in Kivelson normalization
   % Lmax         maximum spherical=harmonic degree
   % filename     name for model
   % tracks       which tracks to use and in what order?
@@ -19,8 +18,6 @@ function writeAvgField(g10,Lmax,filename,tracks,relweights,ind)
 
   %defval('tracks',[1,2,28,7,8,29,101]);
   defval('tracks',[1,2,7,8,28,29,101]);
-  defval('relweights',ones(size(tracks)))
-  defval('ind',[])
 
   rplanet = 2631.2;
 

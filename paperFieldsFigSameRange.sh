@@ -18,8 +18,8 @@ shftX=7.5c
 shftY=-3.8c
 
 #gmt subplot set 0,0
-col=3000
-step=1000
+col=1600
+step=500
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
 gmt grdimage fields/Lmax1_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW
 # Plot magnetic equator
@@ -60,9 +60,9 @@ EOF
 #col=3000
 #step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
-gmt grdimage fields/Lmax3_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW -X-${shftX} -Y${shftY}
+gmt grdimage fields/Lmax2_B_i6_v-35_coef_manycoefs_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30 -BnesW -X-${shftX} -Y${shftY}
 # Plot magnetic equator
-gmt grdcontour fields/Lmax3_field_cmp1.nc -An -C0, -W1p,black,-
+gmt grdcontour  fields/Lmax2_B_i6_v-35_coef_manycoefs_field_cmp1.nc -An -C0, -W1p,black,-
 #gmt colorbar -DJBC+o5.7c/0.3c+w21c/0.5c -B${step}+l"radial magnetic field [nT]"
 gmt colorbar -DJBC+o3.75c/0.3c+w15c/0.3c -B${step}+l"radial magnetic field [nT]"
 gmt plot exportedTracks/Galileo1.txt -S${trshp}  -G${trc}
@@ -81,9 +81,9 @@ EOF
 #col=3000
 #step=1000
 gmt makecpt -Cvik -T-${col}/${col}/10 -Z
-gmt grdimage fields/Lmax3_g10-900_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30  -BnEsw -X${shftX}
+gmt grdimage  fields/Lmax2_C_i7_v24_coef_manycoefs_field_cmp1.nc -JW${wid} -Rd -C -Ba30g30  -BnEsw -X${shftX}
 # Plot magnetic equator
-gmt grdcontour fields/Lmax3_g10-900_field_cmp1.nc -An -C0, -W1p,black,-
+gmt grdcontour  fields/Lmax2_C_i7_v24_coef_manycoefs_field_cmp1.nc -An -C0, -W1p,black,-
 #gmt colorbar -DJBC+o0c/0.3c+w9.5c -B${step}+l"radial magnetic field [nT]"
 gmt plot exportedTracks/Galileo1.txt -S${trshp}  -G${trc}
 gmt plot exportedTracks/Galileo2.txt -S${trshp} -G${trc}
