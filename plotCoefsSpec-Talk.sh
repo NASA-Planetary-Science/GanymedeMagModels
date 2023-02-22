@@ -28,7 +28,7 @@ inc=400
 gmt basemap -R0.8/3.2/1e3/3e6 -JX10c/3.5cl  -Bxa1 -Bya10p -Bx+l"spherical-harmonic degree @[l@[" -By+l"power [nT@+2@+]" #-Y-4c
 
 lt=1p
-lcol=150/150/150
+lcol=150/150/150,-
 sym=c4p
 scol=150/150/150
 
