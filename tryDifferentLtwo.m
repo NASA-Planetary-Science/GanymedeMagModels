@@ -26,8 +26,10 @@ csphase = (-1).^bigm;
 coefSch = coefSch.*csphase;
 D = 2*sum(coefSch(2:4).^2);
 Q = 3*sum(coefSch(5:9).^2);
-QtoDsurf = Q/D;
+QtoDsurf = Q/D
 rCMB = 658;
 QtoDcmb = QtoDsurf*(rplanet/rCMB)^2
+
+rsa = sqrt(QtoDsurf)*rplanet
 
 
