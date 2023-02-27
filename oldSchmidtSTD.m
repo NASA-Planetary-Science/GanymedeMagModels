@@ -1,4 +1,4 @@
-function [stdcoef,lmcosi] = SchmidtSTD(cfmat,Lmax)
+function [coef,lmcosi] = SchmidtSTD(MM,Lmax)
   % [coef,lmcosi] = SchmidtSTD(MM,Lmax)
   %
   % Writes out the Schmidt semi-normalized standard deviations obtained from
@@ -6,18 +6,17 @@ function [stdcoef,lmcosi] = SchmidtSTD(cfmat,Lmax)
   % [cf,MM]=makeMyField(.....)
 
 
-  % First transformation, then std
+  rplanet = 2631.2;
+  coefs = sqrt(diag(MM))/rplanet;
 
-
-  cfmat = cfmat(1:(Lmax+1)^2-1,:);
+  coef = coefs(1:(Lmax+1)^2-1);
+  clear coefs;
 
   fac = 2; % The factor between fully normalized spherical-harmonics
   % and the normalization used by Kivelson et al. (2002)
 
-  cfmat = [zeros(1,size(cfmat,2));cfmat]*fac;
-  for i=1:size(cfmat,2)
-    cfmat(:,i) = Simons2Olsen(cfmat(:,i));
-  end
+  coef = [0;coef]*fac;
+  coef = Simons2Olsen(coef);
 
   % Do I need to include the Condon Shortley phase??? Or is it just
   % negative? g10 definitely needs to be negative... But g10 is not
@@ -39,8 +38,6 @@ function [stdcoef,lmcosi] = SchmidtSTD(cfmat,Lmax)
   % Undoing the Condon-Shortley phase
   [~,~,~,~,~,~,bigm] = addmon(Lmax);
   csphase = (-1).^bigm;
-  cfmat = cfmat.*csphase;
-
-  stdcoef = std(cfmat, [], 2);
+  coef = coef.*csphase;
   
-  lmcosi = coef2lmcosi(stdcoef,0);
+  lmcosi = coef2lmcosi(coef,0);

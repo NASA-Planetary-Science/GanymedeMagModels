@@ -18,7 +18,7 @@ rm diff.nc
 #gmt makecpt -Cvik -T-${2}/${2}/${3} -Z
 #gmt grdimage fields/${1}.nc -JW0/10c -Rd -C -Bg30
 
-col=black
+col=lightgray
 
 gmt plot exportedTracks/Galileo1.txt -Sc0.1c -W${col}
 gmt plot exportedTracks/Galileo2.txt -Sc0.1c -W${col}
