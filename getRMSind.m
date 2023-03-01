@@ -1,6 +1,6 @@
 function rmsval = getRMSind(coefs,Lmax,tracks,indname)
 % Same as getRMS, but also subtacts the induced field.
-
+  
   defval('tracks',[1,2,7,8,28,29,101]);
   
   rplanet = 2631.2;
@@ -63,6 +63,8 @@ function rmsval = getRMSind(coefs,Lmax,tracks,indname)
     
   end
 
+  rmsval = sqrt(sumsq./numdat);
+  
   %rmsval = sqrt(sum(sumsq)/sum(numdat));
 
-  rmsval = rms(sqrt(sumsq./numdat));
+  %rmsval = rms(sqrt(sumsq./numdat));

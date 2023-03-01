@@ -18,6 +18,7 @@ else
   coefs =  invMoreTracks(Lmax,true,tracksinv,[],ind,[]);
 end
 cf = coefs(1:(Lmax+1)^2-1)/rplanet;
+coefs = [cf; coefs((Lmax+1)^2:end)];
 
 % Need to put the corresponding BU values back into the coefficients
 % I use the BU values from the paper, Table 2. These are also stored in the
@@ -26,7 +27,7 @@ cf = coefs(1:(Lmax+1)^2-1)/rplanet;
 %LmaxBU = Lmax;
 %fullcoefs = load(fullfile('coefs',sprintf('Lmax%d_coefs.txt',LmaxBU)));
 if fix==1
-  fixname = '_B_i6_v-35' 
+  fixname = '_B_i6_v-35'; 
 elseif fix==2
   fixname = '_C_i7_v24';
 else
@@ -46,19 +47,21 @@ end
   
 load(fullfile('coefs',sprintf('Lmax%d%s%s_manycoefs',Lmax,fixname,indname)));
 fullcoefs = mean(cfmat,2);
-BUvals = fullcoefs((Lmax+1)^2:end);
-
+%BUvals = fullcoefs((Lmax+1)^2:end);
 % Replace the resulting track BU values with the stored track BU values.
-coefs = [cf;BUvals];
+%coefs = [cf;BUvals];
+% This is what I did originally: Replace all BU values. Try to only replace one!!
+%%%% HERE WE NEED TO ASSUME THAT THE TRACK ORDER IS THE SAME IN THE SAVED AS THE SKIPPED INVERSION
+skippedIndex = (Lmax+1)^2 + (wch-1)*3;
+BUvalsSkipped = fullcoefs(skippedIndex:skippedIndex+2);
+coefsComplete = [coefs(1:skippedIndex-1); BUvalsSkipped; coefs(skippedIndex:end)];
+
 
 if ind
-  rmstracks = getRMSind(coefs,Lmax,[],ind);
+  rmstracks = getRMSind(coefsComplete,Lmax,tracks,ind);
 else
-  rmstracks = getRMS(coefs,Lmax);
+  rmstracks = getRMS(coefsComplete,Lmax);
 end
 
-try
 rmsval = rmstracks(wch);
-catch
-  keyboard
-  end
+
