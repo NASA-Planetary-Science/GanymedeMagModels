@@ -2,9 +2,9 @@
 
 
 # For Lmax = 3
-cells=15.5
+#cells=15.5
 # For Lmax = 2
-#cells=8
+cells=7.5
 
 gmt begin figures/${1} pdf
 

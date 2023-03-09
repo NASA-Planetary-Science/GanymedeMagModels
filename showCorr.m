@@ -1,6 +1,6 @@
 function R=showCorr()
 
-  Lmax = 3;
+  Lmax = 2;
   weighting = true;
   
   % tracks = [1,2,28,7,29,101];
