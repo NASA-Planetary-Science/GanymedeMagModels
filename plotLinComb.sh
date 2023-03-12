@@ -6,11 +6,12 @@ lt=1p
 sym=0.25c
 colfit=120/120/120
 
-gmt makecpt -Cdavos -D -I -T6.2/7/0.2 -Z
+#gmt makecpt -Cdavos -D -I -T6.2/7/0.2 -Z
+gmt makecpt -Cdavos -D -I -T6.5/6.8/0.1 -Z
 
 #### Models
 
-gmt basemap -JX10c/5c -R-0.03/1.03/0.04/0.14 -Bx0.1+l"weight of model L2A-" -By0.02+l"@[Q/D@[ at @[0.25\,r_G@[" -BneSW
+gmt basemap -JX10c/5c -R-0.03/1.03/0.04/0.14 -Bx0.1+l"weight of model L2A@[-@[" -By0.02+l"@[Q/D@[ at @[0.25\,r_G@[" -BneSW
 # gmt plot -Sc0.28c -G160 <<EOF
 # 0,965
 # 1,182
@@ -38,7 +39,7 @@ gmt plot linCombResults.txt -C -Wblack -Sc0.17c
 # EOF
 
 #gmt colorbar -DJCR+w4c/0.3c+o0.2c/0c -B0.2+l"rmse [nT]"
-gmt colorbar -DJTC+w10c/0.3c+o0c/0.25c -B0.2+l"rmse [nT]"
+gmt colorbar -DJTC+w10c/0.3c+o0c/0.25c -B0.1+l"rmse [nT]"
 
 # gmt text -R0/1/0/1 -N  --FONT=20 <<EOF
 # -0.1 1.135 a
