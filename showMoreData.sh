@@ -5,7 +5,8 @@
 gmt begin figures/extendedData pdf
 
 gmt set FORMAT_DATE_IN yyyy-mm-dd
-gmt set FORMAT_CLOCK_MAP hh:mmam
+#gmt set FORMAT_CLOCK_MAP hh:mmam
+gmt set FORMAT_CLOCK_MAP hh:mm
 gmt set FORMAT_DATE_MAP yyyy-mm-dd
 gmt set FONT_LABEL 12p
 gmt set FONT_ANNOT 12p
@@ -192,7 +193,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.075 0.167 834
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  June 27, 1996
+${dats} 0  1996 Jun 27
 EOF
 
 
@@ -352,7 +353,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.075 0.075 261
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  Sep 6, 1996
+${dats} 0  1996 Sep 6
 EOF
 
 
@@ -513,7 +514,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.62 3099
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  Apr 5, 1997
+${dats} 0  1997 Apr 5
 EOF
 
 
@@ -675,7 +676,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.32 1602
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  May 7, 1997
+${dats} 0  1997 May 7
 EOF
 
 
@@ -836,7 +837,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.075 0.16 808
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  May 20, 2000
+${dats} 0  2000 May 20
 EOF
 
 
@@ -999,7 +1000,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.47 2335
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  Dec 28, 2000
+${dats} 0  2000 Dec 28
 EOF
 
 
@@ -1161,7 +1162,7 @@ gmt text -JX? -R0/1/0/1 -N <<EOF
 0.1 0.21 1038
 EOF
 gmt text -JX? -R0/1/-${Blim}/${Blim} -N -F+a90 <<EOF
-${dats} 0  June 07, 2021
+${dats} 0  2021 Jun 7
 EOF
 
 
