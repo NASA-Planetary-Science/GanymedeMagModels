@@ -10,6 +10,8 @@ GMT 6: https://www.generic-mapping-tools.org/
 
 
 
+THESE ARE OLDER INSTRUCTIONS. 
+
 Instructions:
 -------------
 
