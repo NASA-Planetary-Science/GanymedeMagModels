@@ -11,7 +11,7 @@ gmt makecpt -Cdavos -D -I -T6.5/6.8/0.1 -Z
 
 #### Models
 
-gmt basemap -JX10c/5c -R-0.03/1.03/0.04/0.14 -Bx0.1+l"weight of model L2A@[-@[" -By0.02+l"@[Q/D@[ at @[0.25\,r_G@[" -BneSW
+gmt basemap -JX10c/5c -R-0.03/1.03/0.04/0.14 -Bx0.1+l"weight of model L2A@[-@[" -By0.02+l"Q/D at @[0.25\,r_G@[" -BneSW
 # gmt plot -Sc0.28c -G160 <<EOF
 # 0,965
 # 1,182
