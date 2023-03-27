@@ -4,11 +4,11 @@
 # For Lmax = 3
 #cells=15.5
 # For Lmax = 2
-cells=7.5
+cells=8.5
 
 gmt begin figures/${1} pdf
 
-gmt set FONT 9
+gmt set FONT 10
 
 gmt makecpt -Cvik -T-1/1/0.25 -Z
 gmt grdimage correlation/${1}.grd -JX7c/-7c -R0.5/${cells}/0.5/${cells} -C -Bpxccorrelation/labelsUD.txt -Bpyccorrelation/labelsUD.txt
