@@ -1,7 +1,8 @@
-function rmstracks = getRMS(coefs,Lmax,tracks)
-% Should give same results as getRMSE, but this one doesn't require exporting the evaluated model at the tracks.
+function rmstracks = getRMS(coefs,Lmax,tracks,useConstant)
+% Should give same results as getRMSE, but this one doesn't require exporting the evaluated model at the tracks. Set "useConstant" to "true" if you want to use constant values for BJ as opposed to linear fitting.
 
   defval('tracks',[1,2,7,8,28,29,101]);
+  defval('useConstant', false)
   
   rplanet = 2631.2;
   fact=-2;
@@ -17,7 +18,7 @@ function rmstracks = getRMS(coefs,Lmax,tracks)
   
   for i = 1:length(tracks)
 
-    [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
+    [starttime,endtime,~,~,~,~] = getTimeJupLinear(tracks(i));
     if tracks(i) < 100
       filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',tracks(i));
       [data,time] = importData(filename);
@@ -28,8 +29,12 @@ function rmstracks = getRMS(coefs,Lmax,tracks)
     index = time >= starttime & time <= endtime;
     time = time(index);
 
-    [Bx,By,Bz,X,Y,Z] = prepData(tracks(i),rplanet);
-
+    if useConstant
+      [Bx,By,Bz,X,Y,Z] = prepDataConstant(tracks(i),rplanet);
+    else
+      [Bx,By,Bz,X,Y,Z] = prepData(tracks(i),rplanet);
+    end
+      
     % Evaluate data from model
     rGcart = evalSpHarm(X, Y, Z, rplanet, Lmax, fact, true((Lmax+1)^2-1, 1));
 

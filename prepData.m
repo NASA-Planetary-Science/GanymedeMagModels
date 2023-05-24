@@ -8,7 +8,7 @@ function [Bx, By, Bz, X, Y, Z] = prepData(track,rplanet)
     filename = sprintf('JunoData/ORB%03d_GAN_IAU.TAB',track);
   end
     
-  [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
+  [starttime,endtime,Bbgx,Bbgy,Bbgz,timebg] = getTimeJupLinear(track);
 
   
   % Load the data
@@ -21,6 +21,8 @@ function [Bx, By, Bz, X, Y, Z] = prepData(track,rplanet)
   % Keep only data within time limits
   index = time >= starttime & time <= endtime;
   data = data(index,:);
+  indexbg = timebg >= starttime & timebg <= endtime;
+  Bbgx = Bbgx(indexbg,:); Bbgy = Bbgy(indexbg,:); Bbgz = Bbgz(indexbg,:);
   
   % Distribute data into the variables
   Bx = data(:,1) - Bbgx; % in nT

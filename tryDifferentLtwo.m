@@ -1,16 +1,19 @@
-function coefs = tryDifferentLtwo(index, value)
+function coefs = tryDifferentLtwo(index, value, useConstant, invweight)
+
+  defval('useConstant',false)
+  defval('invweight',false)
 
 rplanet = 2631.2;
 
 Lmax = 2;
 % Set value of coefficient and calculate rmse
-coefs =  invSkipChoosenCoefSubMoreTracks(Lmax,index,value*rplanet,true);
+coefs =  invSkipChosenCoefSubMoreTracks(Lmax,index,value*rplanet,true,[],[],[],[],useConstant,invweight);
 %coefs = invMoreTracks(Lmax,true,[],[],[]);
 
 cf = coefs(1:(Lmax+1)^2-1)/rplanet;
 coefs(1:(Lmax+1)^2-1) = cf;
 
-rmstracks = getRMS(coefs,Lmax)
+rmstracks = getRMS(coefs,Lmax,[],useConstant)
 totalrms = rms(rmstracks)
 
 

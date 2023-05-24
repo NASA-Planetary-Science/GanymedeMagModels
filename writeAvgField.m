@@ -14,7 +14,7 @@ function writeAvgField(Lmax,filename,tracks)
   % Loads a file with many models and writes out the average like the function
   % makeMyField did with its result
   %
-  % Last modified by plattner-at-alumni.ethz.ch, 10/12/2022
+  % Last modified by plattner-at-alumni.ethz.ch, 2/22/2022
 
   %defval('tracks',[1,2,28,7,8,29,101]);
   defval('tracks',[1,2,7,8,28,29,101]);

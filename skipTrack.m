@@ -11,9 +11,9 @@ tracksinv = tracks;
 tracksinv(wch) = [];
 
 if fix==1
-  coefs = invSkipChoosenCoefSubMoreTracks(Lmax,6,-35,true,tracksinv,[],ind,[]);
+  coefs = invSkipChosenCoefSubMoreTracks(Lmax,6,-35,true,tracksinv,[],ind,[]);
 elseif fix==2
-  coefs = invSkipChoosenCoefSubMoreTracks(Lmax,7,24,true,tracksinv,[],ind,[]);
+  coefs = invSkipChosenCoefSubMoreTracks(Lmax,7,24,true,tracksinv,[],ind,[]);
 else
   coefs =  invMoreTracks(Lmax,true,tracksinv,[],ind,[]);
 end

@@ -63,10 +63,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G1_BX.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-X@-"
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -79
-$date2 -79
-EOF
+gmt plot data/extendedData/G1bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -108,10 +105,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G1_BY.txt  -Bpxa${tstep}  -W${thick} #-B+t"@%2%B@%%@-Y@-"
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -6
-$date2 -6
-EOF
+gmt plot data/extendedData/G1bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -146,10 +140,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G1_BZ.txt   -Bpxa${tstep}  -W${thick} 
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -79
-$date2 -79
-EOF
+gmt plot data/extendedData/G1bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -229,10 +220,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G2_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -73
-$date2 -73
-EOF
+gmt plot data/extendedData/G2bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -272,10 +260,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G2_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -17
-$date2 -17
-EOF
+gmt plot data/extendedData/G2bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -309,10 +294,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G2_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -85
-$date2 -85
-EOF
+gmt plot data/extendedData/G2bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -388,10 +370,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G7_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 74
-$date2 74
-EOF
+gmt plot data/extendedData/G7bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -431,10 +410,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G7_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 3
-$date2 3
-EOF
+gmt plot data/extendedData/G7bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -468,10 +444,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G7_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -76
-$date2 -76
-EOF
+gmt plot data/extendedData/G7bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -551,10 +524,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G8_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 11
-$date2 11
-EOF
+gmt plot data/extendedData/G8bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -594,10 +564,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G8_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 11
-$date2 11
-EOF
+gmt plot data/extendedData/G8bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -631,10 +598,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G8_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -77
-$date2 -77
-EOF
+gmt plot data/extendedData/G8bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -712,10 +676,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G28_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 78
-$date2 78
-EOF
+gmt plot data/extendedData/G28bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -755,10 +716,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G28_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -7
-$date2 -7
-EOF
+gmt plot data/extendedData/G28bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -792,10 +750,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G28_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -76
-$date2 -76
-EOF
+gmt plot data/extendedData/G28bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -876,10 +831,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G29_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -83
-$date2 -83
-EOF
+gmt plot data/extendedData/G29bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -919,10 +871,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G29_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 9
-$date2 9
-EOF
+gmt plot data/extendedData/G29bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -956,10 +905,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G29_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -79
-$date2 -79
-EOF
+gmt plot data/extendedData/G29bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -1039,10 +985,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G101_BX.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 19
-$date2 19
-EOF
+gmt plot data/extendedData/G101bg_BX.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -1082,10 +1025,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G101_BY.txt  -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 6
-$date2 6
-EOF
+gmt plot data/extendedData/G101bg_BY.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
@@ -1119,10 +1059,7 @@ ${cut2} ${Blim}
 EOF
 gmt plot data/extendedData/G101_BZ.txt -Bpxa${tstep}  -W${thick}
 # Jupiter bg field
-gmt plot -W${col} <<EOF
-$date1 -74
-$date2 -74
-EOF
+gmt plot data/extendedData/G101bg_BZ.txt -W${col}
 # Transitions
 gmt plot -W${cut} <<EOF
 $trans1 $Blim
