@@ -11,7 +11,7 @@ function cfmat=getUncertainty(index,value,Lmax,filename,tracks,relweights,ind,su
   % tracks       which tracks to use and in what order?
   % relweights   relative weights besides max value weighting
   % ind          want to subtract an induced field? Use 'high', 'low', 'simple'
-  %              or a number for alpha, or [] to not subtract an induced field
+  %              or [] to not subtract an induced field
   %              before model calculation
   % subselect    random data subselection fraction (e.g. 0.5 is 50%)
   % nruns        how many calculations for random subselections?
