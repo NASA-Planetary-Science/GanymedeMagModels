@@ -181,6 +181,10 @@ cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25_indsimple',[],[],'simple',0.5,100
 
 
 
+cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25',[],[],[],0.5,100,false,false);
+cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indhigh',[],[],'high',0.5,100,false,false);
+cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indlow',[],[],'low',0.5,100,false,false);
+cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indsimple',[],[],'simple',0.5,100,false,false);
 
 
 
