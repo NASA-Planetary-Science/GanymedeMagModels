@@ -29,8 +29,18 @@ For example:
 cfmat=getUncertainty([],[],2,'Lmax2_allcoef',[],[],[],0.5,10);
 Make sure that you have a folder named "coefs" in your directory such that the result can be saved.
 
+
+To play around with different parameter choices, try out
+tryDifferentLtwo.m
+and
+tryDifferentEig.m
+
+For example:
+coefs=tryDifferentLtwo(6,-37.25);
+
 The script "writeAvgField" then writes out the average result from these calculations:
 writeAvgField(2,'Lmax2_allcoef',[]);
+
 
 
 

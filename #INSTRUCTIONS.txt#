@@ -36,8 +36,7 @@ and
 tryDifferentEig.m
 
 For example:
-tryDifferentLtwo
-
+coefs=tryDifferentLtwo(6,-37.25);
 
 The script "writeAvgField" then writes out the average result from these calculations:
 writeAvgField(2,'Lmax2_allcoef',[]);
@@ -83,7 +82,7 @@ cfmat = getUncertainty([],[],1,'Lmax1',[],[],[],0.5,100);
 The coefficients cfmat will be stored in coefs/Lmax1_manycoefs.mat
 
 The Uniform field is the last ntracks*3 entries of cfmat:
-BU = cfmat(end-3*7+1:end,:);
+/BU = cfmat(end-3*7+1:end,:);
 mean(BU,2)
 std(BU,[],2)
 
