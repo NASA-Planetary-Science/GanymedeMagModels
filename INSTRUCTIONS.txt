@@ -102,7 +102,8 @@ The coefficients are stored in a normalization different from the Schmidt normal
 [stdcoef,stdlmcosi] = SchmidtSTD(cfmat,1);
 
 The lmcosi matrix has four columns: l, m, cos, sin.
-The last two columns contain the Schmidt coefficients for cos and sin parts of the spherical harmonic expansion. 
+The last two columns contain the Schmidt coefficients for cos and sin parts of the spherical harmonic expansion.
+lmcosi(2:end,3:4)'  makes it easier to enter the right values into the latex table
 
 
 
