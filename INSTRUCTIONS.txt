@@ -82,6 +82,13 @@ Specifically, I ran:
 
 cfmat = getUncertainty([],[],1,'Lmax1',[],[],[],0.5,100,false,false);
 
+cfmat = getUncertainty([],[],2,'Lmax2',[],[],[],0.5,100,false,false);
+
+cfmat = getUncertainty(6,-73.3,2,'Lmax2_B_i6_v-37p3',[],[],[],0.5,100,false,false);
+
+cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8',[],[],[],0.5,100,false,false);  
+
+cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24',[],[],[],0.5,100,false,false);
 
 Table 3
 -------
