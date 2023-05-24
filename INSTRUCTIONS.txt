@@ -100,6 +100,7 @@ cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8',[],[],[],0.5,100,false,false)
 
 cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24',[],[],[],0.5,100,false,false);
 
+
 Table 3
 -------
 
@@ -107,20 +108,76 @@ Use the output cfmat of getUncertainty (or load it from the coefs folder).
 
 The coefficients are stored in a normalization different from the Schmidt normalization used by the mag community. To get the correct normalization, use the provided Schmidt renormalization:
 
-[coef,lmcosi] = SchmidtCoef(mean(cfmat,2),1);
+[coef,lmcosi] = SchmidtCoef(mean(cfmat,2),2); % The last 2 means Lmax=2
 
-[stdcoef,stdlmcosi] = SchmidtSTD(cfmat,1);
+[stdcoef,stdlmcosi] = SchmidtSTD(cfmat,2);
 
 The lmcosi matrix has four columns: l, m, cos, sin.
 The last two columns contain the Schmidt coefficients for cos and sin parts of the spherical harmonic expansion.
 lmcosi(2:end,3:4)'  makes it easier to enter the right values into the latex table
 
 
-
-
+Figure 4
+--------
+Write out the spatial representation of the fields using writeAvgField.m, then run paperFieldsFigSameRange.sh 
 
 writeAvgField(1,'Lmax1_manycoefs',[]);
+writeAvgField(2,'Lmax2_manycoefs',[]);
+writeAvgField(2,'Lmax2_B_i6_v-37p25_manycoefs',[]);
+writeAvgField(2,'Lmax2_C_i7_v23p8_manycoefs',[]);
+writeAvgField(2,'Lmax2_D_svd24_manycoefs',[]);
+writeAvgField(2,'Lmax2_E_svd25_manycoefs',[]);
 
+then in a command prompt, run
+./paperFieldsFigSameRange.sh
+
+
+Table 4
+-------
+Get the rms values for individual tracks using
+
+rmstracks = getRMS(mean(cfmat,2),Lmax);
+
+Set Lmax to the max spharm degree of the coefs, like 2 or so. 
+
+To get the overall rms, run
+
+rms(rmstracks)
+
+
+
+Table 5
+-------
+
+Need to calculate the models for all ocean options:
+
+cfmat = getUncertainty([],[],1,'Lmax1',[],[],[],0.5,100,false,false);
+cfmat = getUncertainty([],[],2,'Lmax2',[],[],[],0.5,100,false,false);
+cfmat = getUncertainty(6,-73.3,2,'Lmax2_B_i6_v-37p3',[],[],[],0.5,100,false,false);
+cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8',[],[],[],0.5,100,false,false);  
+cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24',[],[],[],0.5,100,false,false);
+cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25',[],[],[],0.5,100,false,false);
+
+cfmat = getUncertainty([],[],1,'Lmax1_indhigh',[],[],'high',0.5,100,false,false);
+cfmat = getUncertainty([],[],2,'Lmax2_indhigh',[],[],'high',0.5,100,false,false);
+cfmat = getUncertainty(6,-73.3,2,'Lmax2_B_i6_v-37p3_indhigh',[],[],'high',0.5,100,false,false);
+cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8_indhigh',[],[],'high',0.5,100,false,false);  
+cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24_indhigh',[],[],'high',0.5,100,false,false);
+cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25_indhigh',[],[],'high',0.5,100,false,false);
+
+cfmat = getUncertainty([],[],1,'Lmax1_indlow',[],[],'low',0.5,100,false,false);
+cfmat = getUncertainty([],[],2,'Lmax2_indlow',[],[],'low',0.5,100,false,false);
+cfmat = getUncertainty(6,-73.3,2,'Lmax2_B_i6_v-37p3_indlow',[],[],'low',0.5,100,false,false);
+cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8_indlow',[],[],'low',0.5,100,false,false);  
+cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24_indlow',[],[],'low',0.5,100,false,false);
+cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25_indlow',[],[],'low',0.5,100,false,false);
+
+cfmat = getUncertainty([],[],1,'Lmax1_indsimple',[],[],'simple',0.5,100,false,false);
+cfmat = getUncertainty([],[],2,'Lmax2_indsimple',[],[],'simple',0.5,100,false,false);
+cfmat = getUncertainty(6,-73.3,2,'Lmax2_B_i6_v-37p3_indsimple',[],[],'simple',0.5,100,false,false);
+cfmat = getUncertainty(7,23.8,2,'Lmax2_C_i7_v23p8_indsimple',[],[],'simple',0.5,100,false,false);  
+cfmat = getUncertainty(24,[],2,'Lmax2-svd-SV24_indsimple',[],[],'simple',0.5,100,false,false);
+cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25_indsimple',[],[],'simple',0.5,100,false,false);
 
 
 

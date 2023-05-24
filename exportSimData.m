@@ -31,7 +31,7 @@ function exportSimData(coefs,tracks,foldername,trExport)
   for tr = trExport
     
     
-    [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tr);
+    [starttime,endtime,~,~,~,~] = getTimeJupLinear(tr);
     if tr < 100
       filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',tr);
       [data,time] = importData(filename);
