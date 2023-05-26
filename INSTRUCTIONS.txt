@@ -9,6 +9,38 @@ Plotting:
 GMT 6: https://www.generic-mapping-tools.org/
 
 
+DATA SOURCE
+===========
+
+Galileo data
+------------
+
+The Galileo data were downloaded from https://pds-ppi.igpp.ucla.edu/search/view/?f=yes&id=pds://PPI/GO-J-MAG-3-RDR-HIGHRES-V1.0/DATA/SATELLITES/GANYMEDE and stored in the folder "originalData". We then used the function GSPRH2IAU.m to transform the GSPRH coordinate system into the IAU coordinate system.
+
+
+Juno data
+---------
+
+Juno data requires a bit more work.
+The Jupiter-centric data were downloaded from
+https://pds-ppi.igpp.ucla.edu/data/JNO-J-3-FGM-CAL-V1.0/DATA/JUPITER/PC/PERI-34/fgm_jno_l3_2021158pc_r60s_v01.sts
+
+We then removed the header and saved the headerless file as JunoData/MagData/fgm_jno_l3_2021158pc_r1s_v01_nohdr.txt
+
+Next, we use the spice kernels to transform the Juno data to IAU Ganymede data. To download the required spice kernels, run in a command prompt in the directory JunoData/
+
+wget -r -N -l inf -nH --cut-dirs=5 -nv -i urls_jnosp_1000_210501_210801.txt
+
+This will fill up quite some hard drive space, so the downloaded files are not part of this package.
+
+Once everything is downloaded, run the python script JunoData.py from the command prompt:
+
+python JunoData.py
+
+To use spiceypy to transform the Juno data from Jupiter's coordinate system to Ganymede IAU using the Spice Kernels  
+
+
+
 FIRST TIME SETUP
 ================
 
@@ -40,7 +72,6 @@ coefs=tryDifferentLtwo(6,-37.25);
 
 The script "writeAvgField" then writes out the average result from these calculations:
 writeAvgField(2,'Lmax2_allcoef',[]);
-
 
 
 
