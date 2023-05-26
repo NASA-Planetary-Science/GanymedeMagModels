@@ -198,6 +198,16 @@ Then to plot in a terminal:
 
 
 
+Figure 6
+--------
+
+If all data is ready to plot Fig 5, you can plot Figure 6 using the following GMT scripts from the command line
+
+./plotDataJuno.sh Lmax2_manycoefs_simData
+./plotDataJuno.sh Lmax2_B_i6_v-37p25_manycoefs_simData
+
+
+
 Table 6
 -------
 
@@ -226,7 +236,7 @@ Table 7
 Use makeQDtable.m to create tables of the Q/D values for all models and three different core radii.
 
 
-Figure 6
+Figure 7
 --------
 
 Prepare the linear combinations running in Matlab
@@ -236,13 +246,22 @@ Then run in the terminal:
 ./plotLinComb.sh
 
 
-Figure 7
+Figure 8
 --------
 
 In Matlab, prepare the model differences for plotting using showModelDifference.m
 
 showModelDifference('Lmax2_manycoefs', 2, 'Lmax2_B_i6_v-37p25_manycoefs', 2)
 showModelDifference('Lmax2_B_i6_v-37p25_manycoefs', 2, 'Lmax2_C_i7_v23p8_manycoefs', 2)
+
+Then in a command prompt:
+
+./plotFieldsTracksAbs.sh Lmax2_manycoefs_minus_Lmax2_B_i6_v-37p25_manycoefs_alt800_field_cmp1 35 7
+
+./plotFieldsTracksAbs.sh Lmax2_B_i6_v-37p25_manycoefs_minus_Lmax2_C_i7_v23p8_manycoefs_alt800_field_cmp1 30 7.5
+
+These commands are also in the script showFieldDifferences.sh, so you could just run that one:
+./showFieldDifferences.sh
 
 
 To create the field from the omitted singular values, run in Matlab:
