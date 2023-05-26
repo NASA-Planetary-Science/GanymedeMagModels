@@ -1,0 +1,4 @@
+
+./plotFieldsTracksAbsNorm.sh Lmax2_svd24_alt800_field_cmp1
+
+./plotFieldsTracksAbsNorm.sh Lmax2_svd25_alt800_field_cmp1

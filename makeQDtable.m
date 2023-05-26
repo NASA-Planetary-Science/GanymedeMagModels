@@ -1,7 +1,7 @@
 function [QDsurf, QDcmb1, QDcmb2]=makeQDtable()
 
 Lmax=2;
-modnames = {'Lmax2', 'Lmax2_B_i6_v-35', 'Lmax2_C_i7_v24'};
+modnames = {'Lmax2', 'Lmax2_B_i6_v-37p25', 'Lmax2_C_i7_v23p8', 'Lmax2-svd-SV24', 'Lmax2-svd-SV25'};
 induction = {'', '_indhigh', '_indlow', '_indsimple'};
 
 

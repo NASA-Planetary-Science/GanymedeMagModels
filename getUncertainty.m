@@ -49,7 +49,7 @@ function cfmat=getUncertainty(index,value,Lmax,filename,tracks,relweights,ind,su
         [coefs,~,~,~,~] = invSkipChosenCoefSubMoreTracks(Lmax,index,value*rplanet,true,tracks,relweights,ind,subselect,useConstant,invweight);
       else
         disp('check svd')
-        [coefs,~] = solveEig(Lmax,true,tracks,relweights,ind,subselect,useConstant,index,invweight);
+        [coefs,~,~] = solveEig(Lmax,true,tracks,relweights,ind,subselect,useConstant,index,invweight);
       end
     else
       disp('check lsq')

@@ -25,10 +25,10 @@ function showModelDifference(model1, Lmax1, model2, Lmax2)
   cmat2 = load(fullfile('coefs',model2));
   coefs2 = mean(cmat2.cfmat,2);  
 
-  cf1 = zeros(  (max(Lmax1,Lmax2) +1)^2-1 ,1);
+  cf1 = zeros( (max(Lmax1,Lmax2) +1)^2-1 ,1);
   cf1(1:(Lmax1+1)^2-1) = coefs1(1:(Lmax1+1)^2-1);
 
-  cf2 = zeros(max(Lmax1,Lmax2),1);
+  cf2 = zeros( (max(Lmax1,Lmax2) +1)^2-1 ,1);
   cf2(1:(Lmax2+1)^2-1) = coefs2(1:(Lmax2+1)^2-1);
 
   cf = cf1 - cf2;

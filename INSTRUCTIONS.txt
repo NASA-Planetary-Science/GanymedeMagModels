@@ -181,17 +181,109 @@ cfmat = getUncertainty(25,[],2,'Lmax2-svd-SV25_indsimple',[],[],'simple',0.5,100
 
 
 
-cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25',[],[],[],0.5,100,false,false);
-cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indhigh',[],[],'high',0.5,100,false,false);
-cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indlow',[],[],'low',0.5,100,false,false);
-cfmat = getUncertainty(6,-37.25,2,'Lmax2_B_i6_v-37p25_indsimple',[],[],'simple',0.5,100,false,false);
+Figure 5
+--------
+
+The simulated data was written out as part of the writeAvgField.m call for Figure 4, so we can directly plot them in GMT.
+However, we must make sure that the BJ-subtracted real data are ready. To do that, run in Matlab:
+
+exportData()
+exportJunoData()
+
+Then to plot in a terminal:
+
+./plotDataJuno.sh Lmax1_manycoefs_simData
+./plotDataJuno.sh Lmax2_manycoefs_simData
+./plotDataJuno.sh Lmax2_B_i6_v-37p25_manycoefs_simData
+
+
+
+Table 6
+-------
+
+run in Matlab LOCV(Lmax,ind,fix).
+  % fix = [] : either L1 or L2A
+  % fix = 1 : L2B
+  % fix = 2 : L2C
+  % fix = 3 : L2D
+  % fix = 4 : L2E
+
+LOCV(1,[],[]);
+LOCV(1,'high',[])
+
+LOCV(2,'low',2)
+
+LOCV(2,'simple',4)
+
+or quick and easy:
+rmsvals = LOCV(2,[],[]); rms(rmsvals)
+to get the Leave One Out Cross Validation for Lmax = 2, lsq, no induced field 
+
+
+Table 7
+-------
+
+Use makeQDtable.m to create tables of the Q/D values for all models and three different core radii.
+
+
+Figure 6
+--------
+
+Prepare the linear combinations running in Matlab
+manyCoefLinComb()
+
+Then run in the terminal:
+./plotLinComb.sh
+
+
+Figure 7
+--------
+
+In Matlab, prepare the model differences for plotting using showModelDifference.m
+
+showModelDifference('Lmax2_manycoefs', 2, 'Lmax2_B_i6_v-37p25_manycoefs', 2)
+showModelDifference('Lmax2_B_i6_v-37p25_manycoefs', 2, 'Lmax2_C_i7_v23p8_manycoefs', 2)
+
+
+To create the field from the omitted singular values, run in Matlab:
+showSingValField(2,24,800)
+and
+showSingValField(2,25,800)
+
+Then in the terminal
+./showSVfields.sh
+
+I am omitting these from the paper because I can't make much sense of them.
 
 
 
 
 
 
-THESE ARE OLDER INSTRUCTIONS. Some of the functions changed and may be outdated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BELOW ARE OLDER INSTRUCTIONS. Some of the functions changed and may be outdated
 
 Instructions:
 -------------

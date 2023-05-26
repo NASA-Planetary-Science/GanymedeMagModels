@@ -3,15 +3,16 @@ function exportData()
 
   rplanet = 2631.2;
   
-  for track=[1,2,28,7,8,29];
+  for track=[1,2,7,8,28,29]
 
     %filename = sprintf('originalData/ORB%02d_GAN_GPHIO.TAB',track);
     filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',track);
-    [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
+    [starttime,endtime,~,~,~,~] = getTimeJupLinear(track);
     
     [data,time] = importData(filename);
     index = time >= starttime & time <= endtime;
-
+    
+    
     time = time(index);
     
     [Bx, By, Bz, X, Y, Z] = prepData(track,rplanet);

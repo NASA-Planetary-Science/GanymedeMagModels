@@ -9,7 +9,7 @@ Lmax = 2;
 % Set value of coefficient and calculate rmse
 %coefs =  invSkipChosenCoefSubMoreTracks(Lmax,index,value*rplanet,true,[],[],[],[],useConstant);
 %coefs = invMoreTracks(Lmax,true,[],[],[]);
-[coefs,lam] = solveEig(Lmax,true,[],[],[],subselect,useConstant,J,invweight);
+[coefs,lam,~] = solveEig(Lmax,true,[],[],[],subselect,useConstant,J,invweight);
 
 cf = coefs(1:(Lmax+1)^2-1)/rplanet;
 coefs(1:(Lmax+1)^2-1) = cf;

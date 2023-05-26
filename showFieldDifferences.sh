@@ -1,9 +1,9 @@
 
-./plotFieldsTracksAbs.sh Lmax2_manycoefs_minus_Lmax2_B_i6_v-35_manycoefs_alt800_field_cmp1 50 12.5
+./plotFieldsTracksAbs.sh Lmax2_manycoefs_minus_Lmax2_B_i6_v-37p25_manycoefs_alt800_field_cmp1 35 7
 
 #./plotFieldsTracksAbs.sh Lmax2_manycoefs_minus_Lmax2_C_i7_v24_manycoefs_alt800_field_cmp1 60 30
 
-./plotFieldsTracksAbs.sh Lmax2_B_i6_v-35_manycoefs_minus_Lmax2_C_i7_v24_manycoefs_alt800_field_cmp1 30 7.5
+./plotFieldsTracksAbs.sh Lmax2_B_i6_v-37p25_manycoefs_minus_Lmax2_C_i7_v23p8_manycoefs_alt800_field_cmp1 30 7.5
 
 #./plotFieldsTracks.sh Lmax2_minus_Lmax3_alt800_field_cmp1 110 55
 

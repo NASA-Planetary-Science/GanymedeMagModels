@@ -7,7 +7,7 @@ function exportJunoData()
   filename = sprintf('JunoData/ORB%03d_GAN_IAU.TAB',track);
 
   [data,time] = importJunoData(filename);
-  [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(track);
+  [starttime,endtime,~,~,~,~] = getTimeJupLinear(track);
 
   index = time >= starttime & time <= endtime;
   time = time(index);

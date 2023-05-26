@@ -1,4 +1,4 @@
-function [coefs,lam] = solveEig(Lmax,useUF,tracks,relweights,ind,subselect,useConstant,J,invweight)
+function [coefs,lam,svremoved] = solveEig(Lmax,useUF,tracks,relweights,ind,subselect,useConstant,J,invweight)
   % INPUT:
   %
   % Lmax         maximum spherical=harmonic degree
@@ -126,6 +126,7 @@ function [coefs,lam] = solveEig(Lmax,useUF,tracks,relweights,ind,subselect,useCo
   SJinv = diag(lam.^(-1));
   coefs = VJ*(SJinv*(UJ'*dw));
 
+  svremoved = V(:,J);
   
   % Large number of data points -> SVD too costly
   %% Instead of SVD of Mw, do Cholesky decomposition of Mw'Mw

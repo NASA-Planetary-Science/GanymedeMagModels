@@ -17,7 +17,7 @@ function rmsval = getRMSind(coefs,Lmax,tracks,indname)
   
   for i = 1:length(tracks)
 
-    [starttime,endtime,Bbgx,Bbgy,Bbgz] = getTimeJup(tracks(i));
+    [starttime,endtime,~,~,~,~] = getTimeJupLinear(tracks(i));
     if tracks(i) < 100
       filename = sprintf('GalileoData/ORB%02d_GAN_IAU.txt',tracks(i));
       [data,time] = importData(filename);

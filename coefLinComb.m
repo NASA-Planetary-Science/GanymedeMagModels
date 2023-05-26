@@ -32,10 +32,10 @@ function coefs = coefLinComb(fac1,tracks)
     % coefs1( (Lnew+1)^2:end ) = cf( (Lold+1)^2:end );
     % clear cfinfo1,cf;
   
-    cfinfo2 = load(fullfile('coefs','Lmax2_B_i6_v-35_manycoefs'));
+    cfinfo2 = load(fullfile('coefs','Lmax2_B_i6_v-37p25_manycoefs'));
     coefs2 = mean(cfinfo2.cfmat,2);
 
-    coefs = coefs1*fac1 + coefs2*(1-fac1);
+    coefs = coefs1*(1-fac1) + coefs2*fac1;
   %end
   
   %cf = coefs(1:(Lmax+1)^2-1);

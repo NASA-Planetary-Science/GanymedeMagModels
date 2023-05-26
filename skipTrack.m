@@ -27,9 +27,13 @@ coefs = [cf; coefs((Lmax+1)^2:end)];
 %LmaxBU = Lmax;
 %fullcoefs = load(fullfile('coefs',sprintf('Lmax%d_coefs.txt',LmaxBU)));
 if fix==1
-  fixname = '_B_i6_v-35'; 
+  fixname = '_B_i6_v-37p25'; 
 elseif fix==2
-  fixname = '_C_i7_v24';
+  fixname = '_C_i7_v23p8';
+elseif fix==3
+  fixname = '-svd-SV24';
+elseif fix==4
+  fixname = '-svd-SV25';
 else
   fixname = '';
 end
