@@ -39,7 +39,7 @@ gmt plot linCombResults.txt -C -Wblack -Sc0.17c
 # EOF
 
 #gmt colorbar -DJCR+w4c/0.3c+o0.2c/0c -B0.2+l"rmse [nT]"
-gmt colorbar -DJTC+w10c/0.3c+o0c/0.25c -B0.1+l"rmse [nT]"
+gmt colorbar -DJTC+w10c/0.3c+o0c/0.25c -B0.1+l"RMSE [nT]"
 
 # gmt text -R0/1/0/1 -N  --FONT=20 <<EOF
 # -0.1 1.135 a
