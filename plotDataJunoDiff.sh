@@ -47,7 +47,7 @@ gmt plot diff.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"B@-x@- [nT]" -Bpxa
 rm diff.txt
 rmsX=$(gmt math data/GalileoData/G1_BX.txt data/${1}/G1_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.3 0.87 rmse = ${rmsX} nT
+0.3 0.87 RMSE = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} G1
@@ -59,7 +59,7 @@ gmt plot diff.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"B@-y@- [nT]" -Bpxa
 rm diff.txt
 rmsY=$(gmt math data/GalileoData/G1_BY.txt data/${1}/G1_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.3 0.12 rmse = ${rmsY} nT
+0.3 0.12 RMSE = ${rmsY} nT
 EOF
 
 
@@ -69,7 +69,7 @@ gmt plot diff.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l"B@-z@- [nT]" -Bpxa
 rm diff.txt
 rmsZ=$(gmt math data/GalileoData/G1_BZ.txt data/${1}/G1_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.68 0.87 rmse = ${rmsZ} nT
+0.68 0.87 RMSE = ${rmsZ} nT
 EOF
 
 
@@ -81,7 +81,7 @@ gmt plot diff.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa5M -
 rm diff.txt
 rmsX=$(gmt math data/GalileoData/G2_BX.txt data/${1}/G2_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF 
-0.31 0.12 rmse = ${rmsX} nT
+0.31 0.12 RMSE = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} G2
@@ -94,7 +94,7 @@ gmt plot diff.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"By [nT]" -Bpxa5M -
 rm diff.txt
 rmsY=$(gmt math data/GalileoData/G2_BY.txt data/${1}/G2_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.12 rmse = ${rmsY} nT
+0.31 0.12 RMSE = ${rmsY} nT
 EOF
 
 gmt subplot set 2,1
@@ -103,7 +103,7 @@ gmt plot diff.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l"Bz [nT]" -Bpxa5M -
 rm diff.txt
 rmsZ=$(gmt math data/GalileoData/G2_BZ.txt data/${1}/G2_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.12 rmse = ${rmsZ} nT
+0.31 0.12 RMSE = ${rmsZ} nT
 EOF
 
 gmt subplot set 0,2
@@ -113,7 +113,7 @@ gmt plot diff.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa2M -
 rm diff.txt
 rmsX=$(gmt math data/GalileoData/G28_BX.txt data/${1}/G28_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.12 rmse = ${rmsX} nT
+0.31 0.12 RMSE = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} G28
@@ -126,7 +126,7 @@ gmt plot diff.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"By [nT]" -Bpxa2M -
 rm diff.txt
 rmsY=$(gmt math data/GalileoData/G28_BY.txt data/${1}/G28_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.87 rmse = ${rmsY} nT
+0.31 0.87 RMSE = ${rmsY} nT
 EOF
 
 gmt subplot set 2,2
@@ -135,7 +135,7 @@ gmt plot diff.txt -JX? -R${dates}/${zlims} -Bya${zstep} -By+l"Bz [nT]" -Bpxa2M -
 rm diff.txt
 rmsZ=$(gmt math data/GalileoData/G28_BZ.txt data/${1}/G28_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.68 0.12 rmse = ${rmsZ} nT
+0.66 0.12 RMSE = ${rmsZ} nT
 EOF
 
 
@@ -146,7 +146,7 @@ gmt plot diff.txt -JX? -R${dates}/${xlims} -Bya${xstep} -By+l"Bx [nT]" -Bpxa5M -
 rm diff.txt
 rmsX=$(gmt math data/JunoData/J1_BX.txt data/${1}/G101_BX_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.12 rmse = ${rmsX} nT
+0.31 0.12 RMSE = ${rmsX} nT
 EOF
 gmt text -R0/1/0/1 -N --FONT=${trfont} <<EOF
 0.5 ${trloc} J34
@@ -159,7 +159,7 @@ gmt plot diff.txt -JX? -R${dates}/${ylims} -Bya${ystep} -By+l"By [nT]" -Bpxa5M -
 rm diff.txt
 rmsY=$(gmt math data/JunoData/J1_BY.txt data/${1}/G101_BY_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.87 rmse = ${rmsY} nT
+0.31 0.87 RMSE = ${rmsY} nT
 EOF
 
 
@@ -170,7 +170,7 @@ gmt plot diff.txt -Bya${zstep} -By+l"Bz [nT]"  -JX?  -R${dates}/${zlims}  -BpxcJ
 rm diff.txt
 rmsZ=$(gmt math data/JunoData/J1_BZ.txt data/${1}/G101_BZ_sim.txt NEG ADD RMS -S 10 MUL RINT 10 DIV -o1 =)
 gmt text -R0/1/0/1 <<EOF
-0.31 0.12 rmse = ${rmsZ} nT
+0.31 0.12 RMSE = ${rmsZ} nT
 EOF
 
 

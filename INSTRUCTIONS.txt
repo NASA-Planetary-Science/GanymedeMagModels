@@ -234,8 +234,8 @@ Figure 6
 
 If all data is ready to plot Fig 5, you can plot Figure 6 using the following GMT scripts from the command line
 
-./plotDataJuno.sh Lmax2_manycoefs_simData
-./plotDataJuno.sh Lmax2_B_i6_v-37p25_manycoefs_simData
+./plotDataJunoDiff.sh Lmax2_manycoefs_simData
+./plotDataJunoDiff.sh Lmax2_B_i6_v-37p25_manycoefs_simData
 
 
 
